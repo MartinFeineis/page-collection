@@ -1,3 +1,6 @@
+#My ignores
+*.swp
+
 # Nuxt dev/build outputs
 .output
 .data
