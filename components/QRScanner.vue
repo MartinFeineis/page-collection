@@ -4,6 +4,7 @@
     <qrcode-drop-zone></qrcode-drop-zone>
     <qrcode-capture></qrcode-capture>
   </div>
+  <div>Am I getting imported?</div>
 </template>
 
 <script>
