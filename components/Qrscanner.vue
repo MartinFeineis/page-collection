@@ -1,26 +1,42 @@
-<template>
-  <div>
-    <qrcode-stream></qrcode-stream>
-    <qrcode-drop-zone></qrcode-drop-zone>
-    <qrcode-capture></qrcode-capture>
-  </div>
-  <div>Am I getting imported?</div>
-</template>
+<script setup>
+import { ref } from "vue";
+import { StreamBarcodeReader } from "vue-barcode-reader";
 
-<script>
-export default {
-  data() {
-    return {
-      name: 'Apples',
-      message: 'I like apples'
-    }
-  },
-  methods: {
-  onDetect (detectedCodes) {
-    console.log("test")
-  }
-}
+const decodedText = ref("");
+
+const onLoaded = () => {
+  console.log("loaded");
+};
+
+const onDecode = (text) => {
+  decodedText.value = text;
 };
 </script>
 
-<style></style>
+<template>
+  <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded"></StreamBarcodeReader>
+  <h2>The decoded value in QR/barcode is</h2>
+  <h2>{{ decodedText }}</h2>
+
+  <p class="information">
+    <strong>Github:</strong>
+    <a href="https://github.com/olefirenko/vue-barcode-reader" target="_blank"> https://github.com/olefirenko/vue-barcode-reader</a>
+  </p>
+  <p>
+    <strong>NPM:</strong>
+    <a href="https://www.npmjs.com/package/vue-barcode-reader" target="_blank"> https://www.npmjs.com/package/vue-barcode-reader</a>
+  </p>
+  <p>
+    Check <strong>vue-barcode-reader</strong> library in production at
+    <a href="https://parceltrackingapp.com/en" target="_blank">ParcelTrackingApp.com</a>
+  </p>
+</template>
+
+<style scoped>
+a {
+  color: #42b983;
+}
+.information {
+  margin-top: 100px;
+}
+</style>
