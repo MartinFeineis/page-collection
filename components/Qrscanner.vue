@@ -11,18 +11,17 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      name: 'Apples',
-      message: 'I like apples'
-    }
-  },
-  methods: {
-  onDetect (detectedCodes) {
-    console.log("test")
-  }
-}
+import { ref } from "vue";
+import { StreamBarcodeReader } from "vue-barcode-reader";
+
+const decodedText = ref("");
+
+const onLoaded = () => {
+  console.log("loaded");
+};
+
+const onDecode = (text) => {
+  decodedText.value = text;
 };
 </script>
 
