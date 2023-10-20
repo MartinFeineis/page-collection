@@ -16,6 +16,6 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "vue-barcode-reader": "^1.0.3"
+    "vue-qrcode-reader": "^5.3.9"
   }
 }
