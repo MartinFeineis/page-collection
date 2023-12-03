@@ -6,6 +6,7 @@
     <AppAlert>
       This is an auto-imported component
     </AppAlert>
+  <Auth />
   </div>
 </template>
 
