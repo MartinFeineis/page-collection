@@ -2,15 +2,13 @@
 export default {
   data() {
     return {
-      email: '',
-      password: ''
+      uname: '',
+      pword: ''
     };
   },
   methods: {
     login() {
-        console.log('Password: ' + password + ' Username: ' + username);
-      // Send login request and handle authentication token
-      // Store token in local storage
+        console.log("Password: ".concat(this.pword, " Username: ", this.uname ));
     }
   }
 };
@@ -40,10 +38,10 @@ oidc.listen(3000, () => {
     <section class="vh-100" style="background-color: #508bfc;">
   <div class="container py-5 h-100">
     <form @submit.prevent="login">
-      <label for="fname">Username:</label><br>
-      <input type="text" id="fname" name="fname"><br>
-      <label for="lname">Password:</label><br>
-      <input type="password" id="lname" name="lname">
+      <label >Username:</label><br>
+      <input v-model="uname" type="text" placeholder="username or e-mail"><br>
+      <label >Password:</label><br>
+      <input v-model="pword" type="password" placeholder="Password" >
       <input type="submit" value="Submit">
     </form> 
   </div>
