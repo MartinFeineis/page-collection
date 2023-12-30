@@ -12,7 +12,7 @@ export default {
     }
   }
 };
-/*
+import { Provider } from 'oidc-provider';
 const configuration = {
   // refer to the documentation for other available configuration
   clients: [{
@@ -21,14 +21,14 @@ const configuration = {
     redirect_uris: ['http://optiplex:8080/cb'],
     // ... other client properties
   }],
-};
-import { Provider } from 'oidc-provider';
+}; 
+
 const oidc = new Provider('http://optiplex:8080', configuration);
 
-oidc.listen(3000, () => {
-  console.log('oidc-provider listening on port 8080, check http://optiplex:8080/realms/castlePenguin/.well-known/openid-configuration');
-});
-*/
+// oidc.listen(3000, () => {
+//   console.log('oidc-provider listening on port 8080, check http://optiplex:8080/realms/castlePenguin/.well-known/openid-configuration');
+// });
+
 </script>
   
 <style></style>
