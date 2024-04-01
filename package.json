@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "pages-app",
   "private": true,
   "type": "module",
   "scripts": {
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "oidc-provider": "^8.4.3",
+    "openid-client": "^5.6.2",
     "vue-qrcode-reader": "^5.3.9"
   }
 }

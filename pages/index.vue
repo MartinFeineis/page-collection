@@ -6,7 +6,7 @@
     <AppAlert>
       This is an auto-imported component
     </AppAlert>
-  <Auth />
+  <Gosso />
   </div>
 </template>
 

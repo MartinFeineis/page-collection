@@ -1,4 +1,6 @@
  <script>
+ //import  Issuer  from 'openid-client';
+ import Provider from 'oidc-provider';
 export default {
   data() {
     return {
@@ -8,27 +10,26 @@ export default {
   },
   methods: {
     login() {
-        console.log("Password: ".concat(this.pword, " Username: ", this.uname ));
+        // console.log("Password: ".concat(this.pword, " Username: ", this.uname ));
+        // const configuration = {
+        //     // refer to the documentation for other available configuration
+        //     clients: [{
+        //       client_id: 'admin',
+        //       client_secret: 'PMtNy69PWWLfkpiuQ15OWmgG4kiac2c4',
+        //       redirect_uris: ['http://optiplex:3000/'],
+        //       // ... other client properties
+        //   }],
+        // };
+        // const oidc = new Provider('http://optiplex:8080',configuration);
+        // oidc.listen(8080, () => {
+        //   console.log('oidc-provider listening on port 8080, check http://optiplex:8080/realms/castlePenguin/.well-known/openid-configuration');
+        // });
+
+        //const googleIssuer = await Issuer.discover('https://accounts.google.com');
+        //console.log('Discovered issuer %s %O', googleIssuer.issuer, googleIssuer.metadata);
     }
   }
 };
-import { Provider } from 'oidc-provider';
-const configuration = {
-  // refer to the documentation for other available configuration
-  clients: [{
-    client_id: 'foo',
-    client_secret: 'bar',
-    redirect_uris: ['http://optiplex:8080/cb'],
-    // ... other client properties
-  }],
-}; 
-
-const oidc = new Provider('http://optiplex:8080', configuration);
-
-// oidc.listen(3000, () => {
-//   console.log('oidc-provider listening on port 8080, check http://optiplex:8080/realms/castlePenguin/.well-known/openid-configuration');
-// });
-
 </script>
   
 <style></style>
