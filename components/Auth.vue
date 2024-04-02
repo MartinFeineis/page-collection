@@ -1,11 +1,11 @@
  <script>
  //import  Issuer  from 'openid-client';
- import Provider from 'oidc-provider';
+ //import Provider from 'oidc-provider';
 export default {
   data() {
     return {
-      uname: '',
-      pword: ''
+      // uname: '',
+      // pword: ''
     };
   },
   methods: {
@@ -37,6 +37,7 @@ export default {
 <template>
     <h1>AuthN and AuthZ</h1>
     <section class="vh-100" style="background-color: #508bfc;">
+      <!-- start comment
   <div class="container py-5 h-100">
     <form @submit.prevent="login">
       <label >Username:</label><br>
@@ -45,7 +46,8 @@ export default {
       <input v-model="pword" type="password" placeholder="Password" >
       <input type="submit" value="Submit">
     </form> 
-  </div>
+  </div> 
+-->
 </section>
 <h3>Auth done</h3>
 </template>
