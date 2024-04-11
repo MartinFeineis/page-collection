@@ -81,6 +81,11 @@
       <p>p: 31 Falkenfledermaus; chadianischer Wandertang in einer Tiefwasserranch</p>
     </div>
     <div>
+      <h2>Nice Comics</h2>
+      <li>43: Schatten des Imperiums: Evolution</li>
+      <li>21: Die Rebellenbraut</li>
+    </div>
+    <div>
       <h2>Companies</h2>
       <h3>StartUps</h3>
       <p>JOOR</p>
