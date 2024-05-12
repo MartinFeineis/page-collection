@@ -82,7 +82,9 @@
     </div>
     <div>
       <h2>Nice Comics</h2>
-      <li>43: Schatten des Imperiums: Evolution</li>
+      <li>43: Schatten des Imperiums: Evolution
+        <p>Artist: Sean Murphy</p>
+      </li>
       <li>21: Die Rebellenbraut</li>
     </div>
     <div>
