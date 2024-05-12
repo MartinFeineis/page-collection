@@ -1,14 +1,13 @@
 <script>
+console.log("Hello JS World!")
 </script>
 <style>
+    h1 {
+        background-color: #9932CC;
+    }
 </style>
 <template>
-<div>
-    <a href="https://github.com/MartinFeineis/">
-        <img height=200 align="center" src="https://github-readme-stats.vercel.app/api?username=martinfeineis" />
-    </a>
-    <a href="https://github.com/MartinFeineis">
-        <img height=200 align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=martinfeineis&layout=compact&langs_count=8&card_width=320" />
-    </a>
-</div>
+    <div>
+        <h1>Hello New Component</h1>
+    </div>
 </template>
