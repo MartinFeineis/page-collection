@@ -1,5 +1,5 @@
 <script>
-console.log("Hello JS World!")
+    console.log("Hello JS World!")
 </script>
 <style>
     h1 {
