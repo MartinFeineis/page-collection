@@ -13,8 +13,11 @@ h1 {
 <template>
     <div>
         <h1>Hello New Component</h1>
-        <li v-for="item in comics.rows">
-            <p>{{ item }}</p>>
-        </li>
+        <table>
+            <th>Band Nr.</th><th>Titel</th><th>Notizen</th>
+        <tr v-for="item in comics.rows">
+           <td>{{  item.band }}</td> <td>{{ item.title }}</td><td>{{  item.notes }}</td>
+        </tr>
+    </table>
     </div>
 </template>
