@@ -4,6 +4,7 @@
     </div>
     <div>
        <Swtable />
+       <NuxtIsland name="Swinsel" />
     </div>
 </template>
 <script>
