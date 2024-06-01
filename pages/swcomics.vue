@@ -11,15 +11,20 @@ console.log(typeof comics);
     </div>
     <div>
         <table id="swtable" class="table table-bordered table-dark">
+            <thead><tr>
             <th scope="col">Band Nr.</th>
             <th scope="col">Titel</th>
             <th scope="col">Notizen</th>
-            <tr scope="row" v-for="item in comics.data._value.comics">
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="item in comics.data._value.comics">
                 <td>{{ item.band }}</td>
                 <td>{{ item.title }}</td>
                 <td>{{ item.notes }}</td>
                 <!-- <td>{{ item }} new element</td> -->
             </tr>
+        </tbody>
         </table>
     </div>
 </template>
