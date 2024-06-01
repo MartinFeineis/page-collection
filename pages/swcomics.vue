@@ -1,11 +1,11 @@
 <script setup>
 const comics  = await useFetch('/api/comics')
+console.log(comics)
 </script>
 
 <template>
     <div>
         <h1>Hello New Component</h1>
-        <p>Comics?: {{  comics }}</p>
     </div>
     <div>
         <table id="swtable">
@@ -16,7 +16,7 @@ const comics  = await useFetch('/api/comics')
                 <!-- <td>{{ item.band }}</td>
                 <td>{{ item.title }}</td>
                 <td>{{ item.notes }}</td> -->
-                <td>{{ item }}</td>
+                <td>{{ item }} new element</td>
             </tr>
         </table>
     </div>

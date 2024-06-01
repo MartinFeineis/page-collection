@@ -4,9 +4,9 @@ export default defineNuxtConfig({
   experimental: {
     componentIslands: true,
   },
-  routeRules: {
-    '/swcomics': { ssr: true },
-  },
+  // routeRules: {
+  //   '/swcomics': { ssr: true },
+  // },
   plugins: ['~/plugins/qr'],
   modules: [
     'nuxt-vue3-google-signin'
