@@ -1,16 +1,23 @@
+<script setup>
+const comics  = await useFetch('/api/comics')
+</script>
+
 <template>
     <div>
-        <h1 class="component">Hello New Page</h1>
+        <h1>Hello New Component</h1>
+        <p>Comics?: {{  comics }}</p>
     </div>
     <div>
-       <Swtable />
-       <NuxtIsland name="Swinsel" />
+        <table id="swtable">
+            <th>Band Nr.</th>
+            <th>Titel</th>
+            <th>Notizen</th>
+            <tr v-for="item in comics">
+                <!-- <td>{{ item.band }}</td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.notes }}</td> -->
+                <td>{{ item }}</td>
+            </tr>
+        </table>
     </div>
 </template>
-<script>
-</script>
-<style>
-h1.component {
-    background-color: #e61414;
-}
-</style>
