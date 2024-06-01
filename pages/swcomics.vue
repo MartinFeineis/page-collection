@@ -7,16 +7,14 @@ console.log(typeof comics);
 <template>
     <div>
         <h1>Hello New Component</h1>
-        <p>keys: {{   Object.keys(comics.data._value) }}</p>
-        <p>typeof: {{ typeof comics.data }}</p>
-        <p>obje: {{  comics.data._value.comics }}</p>
+        <p>List of my Starwars comicbooks</p>
     </div>
     <div>
-        <table id="swtable">
-            <th>Band Nr.</th>
-            <th>Titel</th>
-            <th>Notizen</th>
-            <tr v-for="item in comics.data._value.comics">
+        <table id="swtable" class="table table-bordered table-dark">
+            <th scope="col">Band Nr.</th>
+            <th scope="col">Titel</th>
+            <th scope="col">Notizen</th>
+            <tr scope="row" v-for="item in comics.data._value.comics">
                 <td>{{ item.band }}</td>
                 <td>{{ item.title }}</td>
                 <td>{{ item.notes }}</td>
