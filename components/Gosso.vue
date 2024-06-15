@@ -5,4 +5,5 @@
     <p><h3>Hello google Signin</h3></p>
   </div>
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <Loggedin />
 </template>

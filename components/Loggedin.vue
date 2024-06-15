@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Hello New Component</h1>
+        <h1>Logged In Component</h1>
     </div>
 </template>
 <script>
