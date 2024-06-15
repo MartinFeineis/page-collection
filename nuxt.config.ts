@@ -7,13 +7,13 @@ export default defineNuxtConfig({
   // routeRules: {
   //   '/swcomics': { ssr: true },
   // },
-  plugins: ['~/plugins/qr'],
-  modules: [
-    'nuxt-vue3-google-signin'
-  ],
-  googleSignIn: {
-    clientId: '969151254190-pl534uplm25np58ajk2fi93hhidqp4pn.apps.googleusercontent.coms',
-  },
+  // plugins: ['~/plugins/qr'],
+  // modules: [
+  //   'nuxt-vue3-google-signin'
+  // ],
+  // googleSignIn: {
+  //   clientId: '969151254190-pl534uplm25np58ajk2fi93hhidqp4pn.apps.googleusercontent.coms',
+  // },
   app: {
     head: {
       link: [
