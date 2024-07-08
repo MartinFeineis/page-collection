@@ -8,7 +8,7 @@
     <li><NuxtLink to="/notes" >Notes</NuxtLink></li>
     <li><NuxtLink to="/swcomics" >Star Wars Comics</NuxtLink></li>
     <li><Appalert /></li>
-    <li><Gosso /></li>
+    <Gosso />
   </ul>
   </div>
 </template>
