@@ -1,0 +1,106 @@
+{
+    "jobs": [
+        {
+            "id": 4,
+            "Company": "Cognizant",
+            "selectStr": "#Cognizant",
+            "Positions": [
+                {
+                    "id": 43,
+                    "Title": "Technical Principal",
+                    "Responsibilities": "Managing technial understanding and deliverable between client and engineering team. Ensuring contractual obligations are fulfilled within the agreed upon time and quality. Creating personalized training manuals for engineering teams for team specific cases. Training junior Technical Principals in client management. Building out CCoE based on AWS Well architected Framework, decreased cloud spending, increased and visualized security posture of AWS Accounts, Architecture and Software.",
+                    "StartDate": "October 2023",
+                    "EndDate": "present"
+                },
+                {
+                    "id": 42,
+                    "Title": "Software Engineering Manager",
+                    "Responsibilities": "Creating Value Stream Maps to identify waste and decrease development time by up to 20%. Train Engineering Teams on best cloud practices and architectural desicion making to decrease cloud spending , increase security posture and following general and specific best practices.",
+                    "StartDate": "September 2022",
+                    "EndDate": "November 2022"
+                },
+                {
+                    "id": 41,
+                    "Title": "Lead Consultant",
+                    "Responsibilities": "Wrote DO178C complaint Terraform IaC in AWS to for remote Pilots to communicate with unmanned aerial vehicles. Trained Engineering Team on Terraform industry best practices and CI/CD Implementations. Developed and implemented one-click IaC solution to accelerate cloud adoption by 50%. Wrote HIPPA compliant serverless Cloudformation IaC and business logic in Python for Healthcare customers to solve crossstate plan coverage.",
+                    "StartDate": "January 2021",
+                    "EndDate": "September 2022"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "Company": "Berkadia",
+            "selectStr": "#Berkadia",
+            "Positions": [
+                {
+                    "id": 31,
+                    "Title": "SRE",
+                    "Responsibilities": "Build Serverless Application for Mortgage Brokers to submit Property Data for commercial real estate developments. Accelerated deal-closing time by 300%",
+                    "StartDate": "May 2020",
+                    "EndDate": "December 2020"
+                },
+                {
+                    "id": 32,
+                    "Title": "DevOps Engineer",
+                    "Responsibilities": "Supporting, driving and reviewing Change Management and Implementation. Resolving Deployment issues in production on Windows Servers with Powershell.",
+                    "StartDate": "June 2018",
+                    "EndDate": "May 2020"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "Company": "Cloudmine",
+            "selectStr": "#Cloudmine",
+            "Positions": [
+                {
+                    "id": 21,
+                    "Title": "SRE",
+                    "Responsibilities": "Maintained and improved HIPAA compliant AWS Software with focus on high availability, and self-healing rapid failover processes. Increased resiliency and overall operating model",
+                    "StartDate": "April 2017",
+                    "EndDate": "April 2018"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "Company": "PointIO",
+            "selectStr": "#PointIO",
+            "Positions": [
+                {
+                    "id": 11,
+                    "Title": "DevOps Engineer",
+                    "Responsibilities": "Build 1-click CI/CD Pipeline allowing globally distributed Engineers to deploy changes reliable into Development environments including rollback strategies. Decreasing deployment time from 24hours to 20min.",
+                    "StartDate": "Deember 2014",
+                    "EndDate": "March 2017"
+                }
+            ]
+        }
+    ],
+    "profile": {
+        "Name": "Martin Feineis",
+        "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ceylon/ceylon-original.svg",
+        "Description": "<p><div> <a href=\"https://www.linkedin.com/in/martinfeineis/\" >LinkedIn</a></p><p><a href=\"https://www.xing.com/profile/Martin_Feineis/cv\">XING</a></p><p>I grew up in Waldbüttelbrunn and attended Deutschhaus Gymnasium in Würzburg, where I earned my Abitur in 2006. Following my military service, I pursued technical physics at Technische Universität Ilmenau, obtaining my Bachelor&#39;s degree in 2011. While working at Siemens in Berlin, I commenced my Masters studies in electrical engineering at FernUniversität Hagen. Upon relocating to the United States in 2014, I transitioned into software engineering in Philadelphia, leaving my Master&#39;s degree unfinished.\"</p></div>",
+        "pictures": [
+            {
+                "id": "1",
+                "src": "https://ghoulmanorpublic.s3.amazonaws.com/picture1.jpeg",
+                "isActive": true,
+                "altText": "Celebrating Open Source Techonolgy for Enterprise"
+            },
+            {
+                "id": "2",
+                "src": "https://ghoulmanorpublic.s3.amazonaws.com/picture2.jpeg",
+                "isActive": false,
+                "altText": "Bewerbungsfoto"
+            },
+            {
+                "id": "3",
+                "src": "https://ghoulmanorpublic.s3.amazonaws.com/picture3.jpeg",
+                "isActive": false,
+                "altText": "Professional picture from company conference"
+            }
+        ]
+    }
+}

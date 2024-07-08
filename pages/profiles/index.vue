@@ -6,9 +6,6 @@
       <title>Resume Martin Feineis</title>
     </head>
     <div>
-      <Profile />
-      <GitHubStats />
-      <SendMsg to:martinfeineis />
-      <Jobs />
-  </div>
+      <p><strong>index.vue placeholder</strong></p>
+      </div>
   </template>
