@@ -1,7 +1,6 @@
 
 <style></style>
 <template>
-  <p>UName here: {{ uname }}</p>
 <div class="row g-0">
     <div class="col-md-4">
     <div id="carouselExample" class="carousel slide ">
