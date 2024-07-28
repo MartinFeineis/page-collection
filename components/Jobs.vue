@@ -27,6 +27,7 @@
 export default {
   props: {
     jobs: {
+      type: Array,
       required: false
     }
   }

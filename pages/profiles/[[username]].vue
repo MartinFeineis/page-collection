@@ -1,11 +1,11 @@
 <template>
   <h1>This is the Profile for {{ user }}</h1>
-  <Appalert :msg="profile.jobs" />
+  <!-- <Appalert :msg="profile.jobs" /> -->
   <div>
-    <pre v-if="isJson">{{ profile.jobs }}</pre>
-    <p v-else>Failed to load profile data. The response is not valid JSON.</p>
+    <!-- <pre v-if="isJson">{{ profile.jobs }}</pre>
+    <p v-else>Failed to load profile data. The response is not valid JSON.</p> -->
     <TechIcons />
-    <!-- <Jobs :jobs="profile.jobs" /> -->
+    <Jobs :jobs="profile.jobs" />
   </div>
 </template>
 <script setup>
