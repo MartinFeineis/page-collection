@@ -2,7 +2,7 @@
   <h1>This is the Profile for {{ user }}</h1>
   <!-- <Appalert :msg="profile.jobs" /> -->
   <div>
-    <Profile :prof="profile.profile" :uname="user.value" />
+    <Profile :prof="profile.profile" :uname='user' />
     <!-- <TechIcons /> -->
     <Jobs :jobs="profile.jobs" />
   </div>

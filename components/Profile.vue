@@ -32,12 +32,12 @@ export default {
     prof: {
       type: Object,
       required: false
-    }
-  },
+    },
     uname: {
       type: String,
       required: true,
       default: "Steven"
     }
+  }
 }
 </script>
