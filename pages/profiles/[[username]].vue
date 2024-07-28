@@ -2,41 +2,15 @@
   <h1>This is the Profile for {{ user }}</h1>
   <!-- <Appalert :msg="profile.jobs" /> -->
   <div>
-    <!-- <pre v-if="isJson">{{ profile.jobs }}</pre>
-    <p v-else>Failed to load profile data. The response is not valid JSON.</p> -->
-    <TechIcons />
+    <Profile :prof="profile.profile" :uname="user.value" />
+    <!-- <TechIcons /> -->
     <Jobs :jobs="profile.jobs" />
   </div>
 </template>
 <script setup>
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
-let tarry =  [
-    {
-      id: 4,
-      Company: 'Cognizant',
-      selectStr: '#Cognizant',
-      Positions: [Array]
-    },
-    {
-      id: 3,
-      Company: 'Berkadia',
-      selectStr: '#Berkadia',
-      Positions: [Array]
-    },
-    {
-      id: 2,
-      Company: 'Cloudmine',
-      selectStr: '#Cloudmine',
-      Positions: [Array]
-    },
-    {
-      id: 1,
-      Company: 'PointIO',
-      selectStr: '#PointIO',
-      Positions: [Array]
-    }
-  ]
+
 const route = useRoute()
 const user = ref(route.params.username)
 console.log(user.value)
