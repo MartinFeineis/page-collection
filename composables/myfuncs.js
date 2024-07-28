@@ -8,3 +8,8 @@
 export const useFoo = () => {
     return useState('foo', () => 'bar')
   }
+
+function getProfData(uname, ppart) { 
+    let data = useFetch('media.404founders.com/${userName}/${field}.json');
+    return data
+}

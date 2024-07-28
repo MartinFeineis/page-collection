@@ -1,8 +1,15 @@
- 
-<style></style>
-
 <template>
-  <div>
-    <h4>App Alert</h4>
-</div>
+    <p v-for="(message, index) in msg" :key="index">
+      comprende? {{ message.Company }} is it here{{ index }}?
+    </p>
 </template>
+<script>
+export default {
+  props: {
+    msg: {
+      type: Array,
+      required: false
+    }
+  }
+}
+</script>
