@@ -6,7 +6,7 @@ export default defineEventHandler((event) => {
 // The current date
    const currentTime = new Date().toTimeString();
    
-
+  let myerror = null;
   (async () => {
 
     try {
@@ -17,8 +17,10 @@ export default defineEventHandler((event) => {
       });
       console.log('Message posted!');
     } catch (error) {
+      myerror = error;
       console.log(error);
     }
 
-  })();  return { msg: query.msg }
+  })(); 
+   return { msg: query.msg , err: myerror};
 })
