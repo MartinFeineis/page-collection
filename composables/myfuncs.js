@@ -1,15 +1,21 @@
-// export function getProfile(userName, field) {
-//     async getData() {
-//         const res = await useFetch('media.404founders.com/${userName}/${field}.json');
-//       }
-//     data = res.field
-//     return data
-//     }
-export const useFoo = () => {
-    return useState('foo', () => 'bar')
-  }
+// /composables/useCurrentDatetime.js
+import { ref } from 'vue';
 
-function getProfData(uname, ppart) { 
-    let data = useFetch('media.404founders.com/${userName}/${field}.json');
-    return data
+// Composable function to return current datetime
+export function useCurrentDatetime() {
+  const currentDatetime = ref('');
+
+  // Function to update the current datetime
+  const updateDatetime = () => {
+    currentDatetime.value = new Date().toLocaleString(); // Get current date and time as string
+  };
+
+  // Call the function immediately to set the initial datetime
+  updateDatetime();
+
+  // Return the reactive datetime and a function to update it
+  return {
+    currentDatetime,
+    updateDatetime,
+  };
 }
