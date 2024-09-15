@@ -1,4 +1,5 @@
 <template>
+  <Home />
     <div>
       <textarea
         v-model="userInput"

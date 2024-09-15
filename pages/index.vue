@@ -7,10 +7,10 @@
     <li><NuxtLink to="/qrscan" >QR Code Scanner</NuxtLink></li>
     <li><NuxtLink to="/notes" >Notes</NuxtLink></li>
     <li><NuxtLink to="/swcomics" >Star Wars Comics</NuxtLink></li>
-    <li><NuxtLink to="/chatia">AI Chat</NuxtLink></li>\
+    <li><NuxtLink to="/chatia">AI Chat</NuxtLink></li>
     <li><NuxtLink to="/utilpage">Utilities page</NuxtLink></li>
-    <li><Appalert /></li>
-    <Gosso />
+    <!-- <li><Appalert /></li>
+    <Gosso /> -->
   </ul>
   </div>
 </template>

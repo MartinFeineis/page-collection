@@ -1,4 +1,5 @@
 <template>
+  <Home />
   <div>
     <h1>Hello New Component</h1>
     <p>List of my Starwars comicbooks</p>

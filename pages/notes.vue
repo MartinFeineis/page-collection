@@ -1,6 +1,7 @@
 <template>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://pages.rjo.me/notes.css">
+  <Home />
   <div class="beer">
     <h2>Beers</h2>
     <p>Beers to try</p>

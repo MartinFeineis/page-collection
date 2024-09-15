@@ -1,4 +1,5 @@
 <template>
+  <Home />
 <form action="" method="get" class="form-example">
   <div class="form-example">
     <label for="name">Requested for: </label>
