@@ -5,9 +5,7 @@
     </div>
   </template>
   
-  <script>
-  import { useCurrentDatetime } from '@/composables/useCurrentDatetime.js';
-  
+  <script>  
   export default {
     setup() {
       // Use the composable to get current datetime and the update function
