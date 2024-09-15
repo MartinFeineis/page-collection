@@ -4,6 +4,7 @@ import { OpenAI } from 'openai';
 
 // Create a client instance of the OpenAI SDK
 const openai = new OpenAI({
+  dangerouslyAllowBrowser: true,
   apiKey: process.env.OPENAI_API_KEY, // Make sure your API key is properly configured in environment variables
 });
 
