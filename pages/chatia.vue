@@ -16,7 +16,6 @@
   
   <script setup>
   import { ref } from 'vue';
-  import { useOpenAI } from '~/composables/useOpenAI';
   
   const { loading, error, response, callOpenAI } = useOpenAI();
   const userInput = ref('');
