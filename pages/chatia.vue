@@ -25,7 +25,7 @@ const responseMessage = ref('');  // Will hold the API response
 // Function to send the message
 async function sendMessage() {
   try {
-    const body = await $fetch('/api/gpt', {
+    const body = await $fetch('/api/test', {
       method: 'POST',
       body: { message: userInput.value }
     });
