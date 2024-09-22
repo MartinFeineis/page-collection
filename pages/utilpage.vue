@@ -22,6 +22,12 @@ async function sendMessage() {
     responseMessage.value = "An error occurred while sending the message.";
   }
 }
+const myVal = ref('')
+async function myTest() {
+  myVal.value = "Hello Button Function"
+  console.log("Pressed Button")
+  return "Hello world"
+}
 </script>
 
 <template>
@@ -43,5 +49,9 @@ async function sendMessage() {
     </div>
     <div id="responseDiv">
       <p>{{ responseMessage }}</p>
+    </div>
+    <div>
+      <p> Learn Async: {{  myVal }}</p>
+      <button @click="myTest">Test button</button>
     </div>
 </template>
