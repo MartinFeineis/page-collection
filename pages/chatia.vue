@@ -27,13 +27,14 @@ import { ref } from 'vue'; // Import ref to handle reactive variables
 
 const userInput = ref('');        // User input from the text field
 const responseMessage = ref('');  // Will hold the API response
-const loading = ref(false);       // To show loading indicator
+const loading = ref('');       // To show loading indicator
 const error = ref(null);          // To hold any error messages
 
 async function sendMessage() {
   console.log(userInput.value)
+  loading.value = "Loading answers ..."
   try {
-    console.log()
+    console.log("What?")
     const body = await $fetch('/api/gpt', {
       method: 'POST',
       body: { message: userInput.value }
@@ -44,10 +45,13 @@ async function sendMessage() {
       responseMessage.value = body;  // Update the HTML element with the response
     } else {
       responseMessage.value = "No response received.";
+      error.value = "No response received.";
     }
   } catch (error) {
     console.error("Error sending message:", error);
     responseMessage.value = "An error occurred while sending the message.";
+    error.value = "An error occurred while sending the message.";
   }
+  loading.value = ''
 }
 </script>
