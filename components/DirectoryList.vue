@@ -6,21 +6,19 @@
     <table v-else class="directory-table">
       <thead>
         <tr>
-          <th>Directory Name</th>
-          <th>Path</th>
-          <th>Hidden</th>
-          <th>System</th>
-          <th>Last Indexed</th>
+          <th @click="sortBy('directory_name')">Directory Name</th>
+          <th @click="sortBy('path')">Path</th>
+          <th @click="sortBy('hidden')">Hidden</th>
+          <th @click="sortBy('system_status')">System</th>
+          <th @click="sortBy('last_time_indexed')">Last Indexed</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="entry in directoryInfo" :key="entry.id">
+        <tr v-for="entry in sortedDirectoryInfo" :key="entry.id">
           <td>{{ entry.directory_name }}</td>
           <td>{{ entry.path }}</td>
-          <td v-if="entry.hidden" class="hidden-tag">Yes</td>
-          <td v-else>No</td>
-          <td v-if="entry.system_status" class="system-tag">Yes</td>
-          <td v-else>No</td>
+          <td>{{ entry.hidden ? 'Yes' : 'No' }}</td>
+          <td>{{ entry.system_status ? 'Yes' : 'No' }}</td>
           <td v-if="entry.last_time_indexed">{{ new Date(entry.last_time_indexed).toLocaleString() }}</td>
           <td v-else>N/A</td>
         </tr>
@@ -31,12 +29,16 @@
 
 <script setup>
 // Import composables
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
 // Reactive variables for directory info, loading status, and error messages
 const directoryInfo = ref([]);
 const loading = ref(true);
 const error = ref(null);
+
+// Sort state
+const currentSortColumn = ref('directory_name'); // Default sort column
+const currentSortDirection = ref('asc'); // Default sort direction
 
 // Fetch data from the server-side API on component mount
 onMounted(async () => {
@@ -53,6 +55,47 @@ onMounted(async () => {
     loading.value = false;
   }
 });
+
+// Computed property to sort the directoryInfo based on the current sort column and direction
+const sortedDirectoryInfo = computed(() => {
+  const sortedData = [...directoryInfo.value];
+
+  sortedData.sort((a, b) => {
+    let modifier = currentSortDirection.value === 'asc' ? 1 : -1;
+    
+    // Handle sorting for different column types
+    if (currentSortColumn.value === 'last_time_indexed') {
+      // Special case for date sorting
+      const dateA = new Date(a[currentSortColumn.value] || 0);
+      const dateB = new Date(b[currentSortColumn.value] || 0);
+      return (dateA - dateB) * modifier;
+    } else if (typeof a[currentSortColumn.value] === 'boolean') {
+      // Special case for boolean sorting (convert to 0/1 for sorting)
+      return (a[currentSortColumn.value] === b[currentSortColumn.value] ? 0 : a[currentSortColumn.value] ? 1 : -1) * modifier;
+    } else {
+      // Default string/number sorting
+      const valueA = a[currentSortColumn.value]?.toString().toLowerCase();
+      const valueB = b[currentSortColumn.value]?.toString().toLowerCase();
+      if (valueA < valueB) return -1 * modifier;
+      if (valueA > valueB) return 1 * modifier;
+      return 0;
+    }
+  });
+
+  return sortedData;
+});
+
+// Function to handle sorting when a column header is clicked
+const sortBy = (column) => {
+  if (currentSortColumn.value === column) {
+    // Toggle the sort direction if the same column is clicked
+    currentSortDirection.value = currentSortDirection.value === 'asc' ? 'desc' : 'asc';
+  } else {
+    // Sort by the new column in ascending order
+    currentSortColumn.value = column;
+    currentSortDirection.value = 'asc';
+  }
+};
 </script>
 
 <style scoped>
@@ -71,11 +114,16 @@ h1 {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+  cursor: pointer;
 }
 
 .directory-table th {
   background-color: #f4f4f4;
   font-weight: bold;
+}
+
+.directory-table th:hover {
+  background-color: #e0e0e0;
 }
 
 .directory-table tr:nth-child(even) {
