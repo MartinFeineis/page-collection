@@ -1,11 +1,11 @@
 <template>
   <Home />
     <div>
-      <FileList/>
+      <DirectoryList />
     </div>
   </template>
   
   <script setup>
-  import FileList from '~/components/FileList.vue';
+  import DirectoryList from '~/components/DirectoryList.vue';
   </script>
   
