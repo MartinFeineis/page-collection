@@ -8,10 +8,10 @@ export default defineNuxtConfig({
   //   '/swcomics': { ssr: true },
   // },
   // plugins: ['~/plugins/db.js'],
-  modules: [
-    //'nuxt-vue3-google-signin',
-    '@nuxthub/core',
-  ],
+  // modules: [
+  //   'nuxt-vue3-google-signin',
+  //   '@nuxthub/core',
+  // ],
   // googleSignIn: {
   //   clientId: '969151254190-pl534uplm25np58ajk2fi93hhidqp4pn.apps.googleusercontent.coms',
   // },
