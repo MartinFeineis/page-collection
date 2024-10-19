@@ -10,6 +10,7 @@
     <li><NuxtLink to="/chatia">AI Chat</NuxtLink></li>
     <li><NuxtLink to="/utilpage">Utilities page</NuxtLink></li>
     <li><NuxtLink to="/filer">Files List page</NuxtLink></li>
+    <li><NuxtLink to="/directory">Directory List page</NuxtLink></li>
     <!-- <li><Appalert /></li>
     <Gosso /> -->
   </ul>
