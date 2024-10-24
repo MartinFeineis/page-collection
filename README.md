@@ -48,3 +48,72 @@ https://www.npmjs.com/package/oidc-provider
 https://stackoverflow.com/questions/51922428/including-npm-packages-in-vue-js-app#51922969
 https://stackoverflow.com/questions/9023672/how-do-i-resolve-cannot-find-module-error-using-node-js
 
+
+Sure, I can help with that! Here is a PostgreSQL statement to create a table for storing directory information:
+
+```sql
+CREATE TABLE directory_info (
+    id SERIAL PRIMARY KEY,
+    path TEXT NOT NULL,
+    last_time_indexed TIMESTAMP,
+    directory_name TEXT NOT NULL,
+    hidden BOOLEAN DEFAULT FALSE,
+    system_status BOOLEAN DEFAULT FALSE
+);
+```
+
+This statement creates a table named `directory_info` with the following columns:
+- `id`: A unique identifier for each record.
+- `path`: The directory path.
+- `last_time_indexed`: The timestamp of the last time the directory was indexed.
+- `directory_name`: The name of the directory.
+- `hidden`: A boolean indicating if the directory is hidden.
+- `system_status`: A boolean indicating if the directory is a system directory.
+
+Let me know if you need any modifications or additional details!
+
+Sure, I can help with that! Here is a PostgreSQL statement to create a table for storing directory information:
+
+```sql
+CREATE TABLE directory_info (
+    id SERIAL PRIMARY KEY,
+    path TEXT NOT NULL,
+    last_time_indexed TIMESTAMP,
+    directory_name TEXT NOT NULL,
+    hidden BOOLEAN DEFAULT FALSE,
+    system_status BOOLEAN DEFAULT FALSE
+);
+```
+
+This statement creates a table named `directory_info` with the following columns:
+- `id`: A unique identifier for each record.
+- `path`: The directory path.
+- `last_time_indexed`: The timestamp of the last time the directory was indexed.
+- `directory_name`: The name of the directory.
+- `hidden`: A boolean indicating if the directory is hidden.
+- `system_status`: A boolean indicating if the directory is a system directory.
+
+Let me know if you need any modifications or additional details!
+
+Sure, I can help with that! Here is a PostgreSQL statement to create a table for storing directory information:
+
+```sql
+CREATE TABLE directory_info (
+    id SERIAL PRIMARY KEY,
+    path TEXT NOT NULL,
+    last_time_indexed TIMESTAMP,
+    directory_name TEXT NOT NULL,
+    hidden BOOLEAN DEFAULT FALSE,
+    system_status BOOLEAN DEFAULT FALSE
+);
+```
+
+This statement creates a table named `directory_info` with the following columns:
+- `id`: A unique identifier for each record.
+- `path`: The directory path.
+- `last_time_indexed`: The timestamp of the last time the directory was indexed.
+- `directory_name`: The name of the directory.
+- `hidden`: A boolean indicating if the directory is hidden.
+- `system_status`: A boolean indicating if the directory is a system directory.
+
+Let me know if you need any modifications or additional details!
