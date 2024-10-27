@@ -117,3 +117,12 @@ This statement creates a table named `directory_info` with the following columns
 - `system_status`: A boolean indicating if the directory is a system directory.
 
 Let me know if you need any modifications or additional details!
+
+
+Count number of different file types:
+```sql
+SELECT file_extension, COUNT(*) AS extension_count
+FROM file_info
+GROUP BY file_extension
+ORDER BY extension_count DESC;
+```

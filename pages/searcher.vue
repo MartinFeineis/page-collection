@@ -2,6 +2,7 @@
     <Home />
       <div>
         <FEFiles/>
+        <FNFiles/>
       </div>
     </template>
     
