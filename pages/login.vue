@@ -5,6 +5,7 @@
     </div>
 </template>
 <script>
+const user_profile = ref(null); // Initialize user_profile
 function onSignIn(googleUser) {
   var user_profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
