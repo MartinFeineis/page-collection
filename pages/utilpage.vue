@@ -28,11 +28,19 @@ async function myTest() {
   console.log("Pressed Button")
   return "Hello world"
 }
+const profurl = 'https://media.404founders.com/martinfeineis/profile.json';
+//const profurl = 'https://jsonplaceholder.typicode.com/todos/1';
+const { isFetching, data, error } = useFetch(profurl);
 </script>
 
 <template>
     <Home />
     <h2>Utilities page</h2>
+    <div>
+      <p> {{ isFetching }}</p>
+      <p> {{ data }}</p>
+      <p> {{ error }}</p>
+    </div>
     <UtilComp />
     <div>
       <textarea

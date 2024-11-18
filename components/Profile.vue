@@ -6,7 +6,7 @@
     <div id="carouselExample" class="carousel slide ">
   <div class="carousel-inner">
     <div v-for="(picture, index) in prof.pictures" :key='picture.id' class="carousel-item" :class="{active : picture.isActive}">
-      <img :src="'https://media.404founders.com/' +  'martinfeineis' + '/picture' + index +'.jpeg'" class="img-thumbnail d-block w-100" :alt="picture.altText">
+      <img :src="'https://media.404founders.com/' +  uname + '/picture' + index +'.webp'" class="img-thumbnail d-block w-100" :alt="picture.altText">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
