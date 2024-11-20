@@ -1,0 +1,79 @@
+{
+    "jobs": [
+        {
+            "id": 1,
+            "Company": "Corellian Engineering Corporation",
+            "selectStr": "#CorellianEngineering",
+            "Positions": [
+                {
+                    "id": 11,
+                    "Title": "Lead Hyperdrive Engineer",
+                    "Responsibilities": "Developing next-generation hyperdrive systems for starships, optimizing power consumption and safety protocols for hyperspace travel. Spearheaded the creation of the YT-1300 hyperdrive upgrade kit, increasing range by 25%. Mentored junior engineers on advanced hyperdrive mechanics and Galactic Empire compliance.",
+                    "StartDate": "January 21 BBY",
+                    "EndDate": "present"
+                },
+                {
+                    "id": 12,
+                    "Title": "Senior Systems Engineer",
+                    "Responsibilities": "Managed cross-departmental projects to integrate hyperdrive technology into new starship designs. Improved system redundancy for high-stress hyperspace routes. Conducted training programs for Rebel Alliance technicians on retrofitting older models with modern hyperdrives.",
+                    "StartDate": "15 BBY",
+                    "EndDate": "20 BBY"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "Company": "Kuat Drive Yards",
+            "selectStr": "#KuatDriveYards",
+            "Positions": [
+                {
+                    "id": 21,
+                    "Title": "Hyperdrive Specialist",
+                    "Responsibilities": "Enhanced hyperdrive cooling systems on Star Destroyers, reducing heat buildup during prolonged hyperspace travel. Collaborated with engineering teams on the Venator-class Star Destroyer upgrades to improve jump accuracy and efficiency.",
+                    "StartDate": "22 BBY",
+                    "EndDate": "15 BBY"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "Company": "Independent Contractor",
+            "selectStr": "#Freelance",
+            "Positions": [
+                {
+                    "id": 31,
+                    "Title": "Freelance Hyperdrive Engineer",
+                    "Responsibilities": "Worked with smugglers and bounty hunters to retrofit older freighters with high-performance hyperdrives. Specialized in bypassing Imperial tracking beacons and implementing stealth hyperspace technology.",
+                    "StartDate": "20 BBY",
+                    "EndDate": "22 BBY"
+                }
+            ]
+        }
+    ],
+    "profile": {
+        "Name": "Kael Vrynn",
+        "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        "Description": "<p><div><p>Kael Vrynn is a renowned Hyperdrive Engineer from the Outer Rim Territories. He trained at the Galactic Institute of Technology, specializing in hyperspace physics. Over his career, Kael has worked with leading starship manufacturers and Rebel forces, earning a reputation for innovative designs and unmatched technical expertise. When not working, Kael enjoys studying star charts and exploring uncharted hyperspace routes.</p></div>",
+        "pictures": [
+            {
+                "id": "1",
+                "src": "https://starwars-resources.s3.amazonaws.com/picture1.jpeg",
+                "isActive": true,
+                "altText": "Kael Vrynn working on a hyperdrive in a Rebel hangar"
+            },
+            {
+                "id": "2",
+                "src": "https://starwars-resources.s3.amazonaws.com/picture2.jpeg",
+                "isActive": false,
+                "altText": "Professional profile picture of Kael Vrynn"
+            },
+            {
+                "id": "3",
+                "src": "https://starwars-resources.s3.amazonaws.com/picture3.jpeg",
+                "isActive": false,
+                "altText": "Kael Vrynn presenting hyperdrive mechanics to Rebel engineers"
+            }
+        ]
+    }
+}
+

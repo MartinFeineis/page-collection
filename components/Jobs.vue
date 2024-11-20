@@ -12,7 +12,7 @@
         {{ job.Company }}
       </button>
     </p>
-    <div class="collapse" :id="job.Company">
+    <div class="collapse" :id="job.selectStr">
       <div v-for="position in job.Positions" :key="position.id">
         <div class="card card-body">
           <h5>{{ position.Title }}</h5>

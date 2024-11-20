@@ -39,10 +39,13 @@ console.log(response);
   <h1>This is the Profile for {{ user }} url {{ profurl }}</h1>
   <div v-if="profile">
     <Profile :prof="profile.profile" :uname="user" />
-    <!--  <Jobs :jobs="profile.jobs" /> -->
+    <Jobs :jobs="profile.jobs" />
   </div>
   <div v-else>
     <p v-if="error">Error fetching profile: {{ error }}</p>
     <p v-else>Loading profile... </p>
+  </div>
+  <div>
+    <p>{{profile.jobs }}</p>
   </div>
 </template>
