@@ -40,12 +40,13 @@ console.log(response);
   <div v-if="profile">
     <Profile :prof="profile.profile" :uname="user" />
     <Jobs :jobs="profile.jobs" />
+    <!-- <TechIcons :username="user" /> -->
   </div>
   <div v-else>
     <p v-if="error">Error fetching profile: {{ error }}</p>
     <p v-else>Loading profile... </p>
   </div>
-  <!-- <div>
-    <p>{{ profile.jobs }}</p>
-  </div> -->
+  <div>
+    <p>{{ user }}</p>
+  </div>
 </template>
