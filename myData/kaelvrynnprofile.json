@@ -3,7 +3,7 @@
         {
             "id": 1,
             "Company": "Corellian Engineering Corporation",
-            "selectStr": "#CorellianEngineering",
+            "selectStr": "CorellianEngineering",
             "Positions": [
                 {
                     "id": 11,
@@ -24,7 +24,7 @@
         {
             "id": 2,
             "Company": "Kuat Drive Yards",
-            "selectStr": "#KuatDriveYards",
+            "selectStr": "KuatDriveYards",
             "Positions": [
                 {
                     "id": 21,
@@ -38,7 +38,7 @@
         {
             "id": 3,
             "Company": "Independent Contractor",
-            "selectStr": "#Freelance",
+            "selectStr": "Freelance",
             "Positions": [
                 {
                     "id": 31,
@@ -57,19 +57,19 @@
         "pictures": [
             {
                 "id": "1",
-                "src": "https://starwars-resources.s3.amazonaws.com/picture1.jpeg",
+                "src": "https://media.404founders.com/kaelvrynn/picture0.webp",
                 "isActive": true,
                 "altText": "Kael Vrynn working on a hyperdrive in a Rebel hangar"
             },
             {
                 "id": "2",
-                "src": "https://starwars-resources.s3.amazonaws.com/picture2.jpeg",
+                "src": "https://media.404founders.com/kaelvrynn/picture1.webp",
                 "isActive": false,
                 "altText": "Professional profile picture of Kael Vrynn"
             },
             {
                 "id": "3",
-                "src": "https://starwars-resources.s3.amazonaws.com/picture3.jpeg",
+                "src": "https://media.404founders.com/kaelvrynn/picture3.webp",
                 "isActive": false,
                 "altText": "Kael Vrynn presenting hyperdrive mechanics to Rebel engineers"
             }

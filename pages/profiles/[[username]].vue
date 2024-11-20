@@ -45,7 +45,7 @@ console.log(response);
     <p v-if="error">Error fetching profile: {{ error }}</p>
     <p v-else>Loading profile... </p>
   </div>
-  <div>
-    <p>{{profile.jobs }}</p>
-  </div>
+  <!-- <div>
+    <p>{{ profile.jobs }}</p>
+  </div> -->
 </template>

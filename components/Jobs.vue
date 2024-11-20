@@ -5,7 +5,7 @@
         class="btn btn-primary"
         type="button"
         data-bs-toggle="collapse"
-        :data-bs-target="'#' + job.Company"
+        :data-bs-target="'#' + job.selectStr"
         aria-expanded="false"
         :aria-controls="job.Company"
       >
