@@ -18,35 +18,36 @@ const links = ref([]);
 const image = ref("");
 const Description = ref("");
 const techstack = ref({});
-const tiurl = `https://media.404founders.com/${username}/profile.json`;
+const tiurl = `https://media.404founders.com/${username}/techIcons.json`;
 
 // Fetch Tech Stack Data
-const fetchTechStack = async () => {
-  const { data, error } = await useFetch(tiurl).get().json();
+// const fetchTechStack = async () => {
+//   const { data, error } = await useFetch(tiurl).get().json();
 
-  if (error.value) {
-    console.error("Error fetching tech stack data:", error.value);
-    return;
-  }
+//   if (error.value) {
+//     console.error("Error fetching tech stack data:", error.value);
+//     return;
+//   }
 
-  const fetchedData = data.value || {};
-  Name.value = fetchedData.Name || "";
-  content.value = fetchedData.content || "Click on any picture to learn more.";
-  image.value = fetchedData.image || "";
-  Description.value = fetchedData.Description || "";
-  techstack.value = fetchedData.techstack || {};
-};
+//   const fetchedData = data.value || {};
+//   Name.value = fetchedData.Name || "";
+//   content.value = fetchedData.content || "Click on any picture to learn more.";
+//   image.value = fetchedData.image || "";
+//   Description.value = fetchedData.Description || "";
+//   techstack.value = fetchedData.techstack || {};
+// };
 
-// Change Content Method
-const changeContent = (key) => {
-  content.value = techstack.value[key]?.desc || "Description not available.";
-  links.value = techstack.value[key]?.links || [];
-};
+// // Change Content Method
+// const changeContent = (key) => {
+//   content.value = techstack.value[key]?.desc || "Description not available.";
+//   links.value = techstack.value[key]?.links || [];
+// };
 
-// Lifecycle Hook
-onMounted(() => {
-  fetchTechStack();
-});
+// // Lifecycle Hook
+// onMounted(() => {
+//   fetchTechStack();
+// });
+const response  = await useFetch(tiurl)
 </script>
 
 <style scoped>
