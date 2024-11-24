@@ -4,35 +4,8 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const user = ref(route.params.username)
-//const profile = ref(null)
 const error = ref(null)
 const profurl = `https://media.404founders.com/${user.value}/profile.json`;
-
-// const fetchProfile = async () => {
-//   console.log(`Fetching profile from: ${profurl}`);
-//   try {
-//     const response = await fetch(profurl);
-//     console.log('Response:', response);
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! Status: ${response.status}`);
-//     }
-//     const data = await response.json();
-//     console.log('Profile data:', data);
-//     profile.value = data;
-//   } catch (err) {
-//     console.error('Error fetching profile:', err.message);
-//     error.value = err.message;
-//   }
-// };
-
-// const { profile } = await useFetch(profurl)
-// // Automatically fetch the profile when `user` changes
-// watch(user, fetchProfile, { immediate: true })
-
-// onMounted(fetchProfile)
-// console.log(`Fetching profile from: ${profurl}`);
-// const response = await fetch(profurl);
-// console.log(response);
 const profile  = await useFetch(profurl)
 </script>
 

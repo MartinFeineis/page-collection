@@ -1,5 +1,9 @@
 
-<style></style>
+<style>
+.space {
+  padding: 1%
+}
+</style>
 <template>
 <div class="row g-0">
     <div class="col-md-4">
@@ -19,9 +23,16 @@
   </button>
   </div>
 </div>
-  <div class="col-md-8">
+  <div class="col-md-8 space">
     <h1>{{ prof.Name }}</h1>
-    <p v-html=prof.Description></p>
+    <ul>
+      <li v-for="(linkObj, index) in prof.userlinks" :key="index">
+        <a :href="Object.values(linkObj)[0]" target="_blank" rel="noopener noreferrer">
+          {{ Object.keys(linkObj)[0] }}
+        </a>
+      </li>
+    </ul>
+    <p>{{ prof.Description }}</p>
   </div>
 </div>
 </template>

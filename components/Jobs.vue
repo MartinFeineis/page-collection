@@ -13,7 +13,7 @@
       </button>
     </p>
     <div class="collapse" :id="job.selectStr">
-      <div v-for="position in job.Positions" :key="position.id">
+      <div v-for="position in job.Positions" :key="position.id" class="jobtext">
         <div class="card card-body">
           <h5>{{ position.Title }}</h5>
           <p><small>Started: {{ position.StartDate }} Finished: {{ position.EndDate }}</small></p>
@@ -33,3 +33,8 @@ export default {
   }
 }
 </script>
+<style>
+.jobtext {
+  padding: 0.15em 1em;
+}
+</style>
