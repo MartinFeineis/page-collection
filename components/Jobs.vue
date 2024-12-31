@@ -36,5 +36,8 @@ export default {
 <style>
 .jobtext {
   padding: 0.15em 1em;
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+  font-family: inherit;
 }
 </style>

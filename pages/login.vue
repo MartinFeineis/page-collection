@@ -1,10 +1,15 @@
 <template>
   <Home />
     <div>
-        <h1>Page</h1>
+        <h1>Login Page</h1>
+    </div>
+    <div class="mt-10">
+      <h2 class="text-5xl font-bold mb-7">Log in</h2>
+      <button>Login with Google</button>
     </div>
 </template>
 <script>
+const supabase = useSupabaseClient();
 const user_profile = ref(null); // Initialize user_profile
 function onSignIn(googleUser) {
   var user_profile = googleUser.getBasicProfile();
@@ -23,6 +28,6 @@ export default {
 </script>
 <style>
     h1 {
-        background-color: #9932CC;
+        background-color: #cc8932;
     }
 </style>

@@ -1,15 +1,15 @@
-<script setup>
-import { ref, onMounted } from "vue";
-import { useFetch } from "@vueuse/core";
+<script>
 
 // Props
-const props = defineProps({
-  username: {
-    type: String,
-    required: true,
-    default: "steven",
-  },
-});
+export default {
+  props:{
+    username: {
+      type: String,
+      required: true,
+      default: "Steven"
+    }
+  }
+}
 
 // State Variables
 const Name = ref("");
@@ -49,23 +49,6 @@ const tiurl = `https://media.404founders.com/${username}/techIcons.json`;
 // });
 const response  = await useFetch(tiurl)
 </script>
-
-<style scoped>
-.lang {
-  width: 100px;
-  height: 100px;
-  padding: 10px 15px;
-}
-img.lang:hover {
-  transform: scale(1.5);
-  transition: transform 0.2s ease-in-out;
-}
-.tsbtn {
-  width: 100px;
-  height: 100px;
-}
-</style>
-
 <template>
   <div>
     <p>TechIcons</p>
