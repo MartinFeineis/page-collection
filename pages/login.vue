@@ -7,6 +7,7 @@
       <h2 class="text-5xl font-bold mb-7">Log in</h2>
       <button @click="login">Login with Google</button>
     </div>
+    <div><p>User is: {{ user }}</p></div>
 </template>
 
 <script setup>
@@ -23,6 +24,7 @@ const login =  async () => {
     console.log(error)
   }
 };
+const user = useSupabaseUser()
 // const user_profile = ref(null); // Initialize user_profile
 // function onSignIn(googleUser) {
 //   var user_profile = googleUser.getBasicProfile();
