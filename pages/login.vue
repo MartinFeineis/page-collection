@@ -13,7 +13,10 @@
 const supabase = useSupabaseClient();
 const login =  async () => {
   const {error} = supabase.auth.signInWithOAuth({
-    provider: "google"
+    provider: "google",
+    options: {
+    redirectTo: `http://pages.rjo.me/login`,
+  },
   });
 
   if (error) {
