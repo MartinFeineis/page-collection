@@ -1,4 +1,5 @@
 <template>
+  <Home />
   <div>
     <h1>Pages Index page</h1>
     <ul>
