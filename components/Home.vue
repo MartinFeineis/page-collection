@@ -2,6 +2,7 @@
 const user = useSupabaseUser()
 const logout = () => {
     supabase.auth.signOut()
+    navigateTo = "/"
 }
 </script>
 <template>
