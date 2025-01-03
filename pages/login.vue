@@ -7,7 +7,7 @@
       <h2 class="text-5xl font-bold mb-7">Log in</h2>
       <button @click="login">Login with Google</button>
     </div>
-    <div><p>User is: {{ user }}</p></div>
+    <div><p>User is: {{ user.full_name }}</p></div>
 </template>
 
 <script setup>

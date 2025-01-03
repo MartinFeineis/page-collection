@@ -1,4 +1,5 @@
 <script setup>
+const supabase = useSupabaseClient();
 const user = useSupabaseUser()
 
 const logout = async () => {
