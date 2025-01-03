@@ -1,17 +1,4 @@
 <script setup>
-const supabase = useSupabaseClient();
-const login =  async () => {
-  const {error} = supabase.auth.signInWithOAuth({
-    provider: "google",
-    options: {
-    redirectTo: `http://pages.rjo.me/login`,
-  },
-  });
-
-  if (error) {
-    console.log(error)
-  }
-};
 const user = useSupabaseUser()
 const logout = () => {
     supabase.auth.signOut()
@@ -24,7 +11,7 @@ const logout = () => {
             <button @click="logout">logout</button>
         </div>
         <div v-else>
-            <button @click="login">login</button>
+            <NuxtLink to="/login">Login</NuxtLink>
         </div>
     </div>
 </template>
