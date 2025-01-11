@@ -5,7 +5,7 @@ const supabase = useSupabaseClient();
 const route = useRoute();
 const username = ref(route.params.username); // Fetch the username from the route
 
-
+const user = useSupabaseUser()
 // const { data } = await supabase
 //   .from('profiles')
 //   .select(`username, bio, avatar_url`)
@@ -51,5 +51,6 @@ const username = ref(route.params.username); // Fetch the username from the rout
 <template>
   <Home />
 <div> {{ data }}</div>
-<div>User: {{ username }}</div>
+<div>User: {{ user }}</div>
+<div>Username: {{ username }}</div>
 </template>
