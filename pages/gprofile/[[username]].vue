@@ -1,8 +1,15 @@
 <script setup>
 import { useRouter } from 'vue-router'; // Ensure Vue Router is set up in your project
 const supabase = useSupabaseClient();
-const router = useRouter();
+const route = useRoute();
+const username = route.params.username; // Fetch the username from the route
 
+
+// const { data } = await supabase
+//   .from('profiles')
+//   .select(`username, bio, avatar_url`)
+//   .eq('id', user.value.id)
+//   .single()
 // const loadProfile = async () => {
 //   const { data: user, error } = await supabase.auth.getUser();
 //   if (error) {
@@ -29,11 +36,7 @@ const router = useRouter();
 // loading.value = true
 // const user = useSupabaseUser()
 
-const { data } = await supabase
-  .from('profiles')
-  .select(`username, bio, avatar_url`)
-  .eq('id', user.value.id)
-  .single()
+
 
 // if (data) {
 //   username.value = data.username
@@ -47,4 +50,5 @@ const { data } = await supabase
 <template>
   <Home />
 <div> {{ data }}</div>
+<div>User: {{ user }}</div>
 </template>
