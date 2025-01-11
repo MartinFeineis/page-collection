@@ -1,8 +1,9 @@
 <script setup>
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'; // Ensure Vue Router is set up in your project
 const supabase = useSupabaseClient();
 const route = useRoute();
-const username = route.params.username; // Fetch the username from the route
+const username = ref(route.params.username); // Fetch the username from the route
 
 
 // const { data } = await supabase
@@ -50,5 +51,5 @@ const username = route.params.username; // Fetch the username from the route
 <template>
   <Home />
 <div> {{ data }}</div>
-<div>User: {{ user }}</div>
+<div>User: {{ username }}</div>
 </template>
