@@ -16,7 +16,7 @@ const login =  async () => {
   const {error} = supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-    redirectTo: `http://pages.rjo.me/login`,
+    redirectTo: `http://pages.rjo.me/gprofile`,
   },
   });
 
