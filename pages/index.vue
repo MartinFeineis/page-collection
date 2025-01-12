@@ -18,5 +18,6 @@
   </div>
   <p>Last Commit: now with on-mounted</p>
   <p>Last Commit: fixed commit msg</p>
+  <p>Last Commit: troubleshooting 3</p>
 </template>
 
