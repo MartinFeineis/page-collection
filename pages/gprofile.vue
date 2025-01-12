@@ -11,7 +11,7 @@ const user = useSupabaseUser();
 const redirectToProfile = () => {
   if (user.value) {
     const username = user.value.user_metadata?.username || user.value.email.split('@')[0];
-    router.push(`/gprofile/${username}`);
+    router.push(`/guser/${username}`);
   } else {
     error.value = "User is not authenticated!";
   }
