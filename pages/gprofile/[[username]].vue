@@ -53,4 +53,5 @@ const user = useSupabaseUser()
 <div> {{ data }}</div>
 <div>User: {{ user }}</div>
 <div>Username: {{ username }}</div>
+<p>testing</p>
 </template>
