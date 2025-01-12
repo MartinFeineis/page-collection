@@ -1,6 +1,9 @@
 <script setup>
+import { ref } from 'vue'
 import { useRouter } from 'vue-router';
-
+const error = ref(null)
+const data = ref()
+const username = ref()
 //const supabase = useSupabaseClient();
 const router = useRouter();
 const user = useSupabaseUser()
