@@ -13,10 +13,7 @@
     <li><NuxtLink to="/filer">Files List page</NuxtLink></li>
     <li><NuxtLink to="/directory">Directory List page</NuxtLink></li>
     <li><NuxtLink to="/searcher">Search Files and Directories</NuxtLink></li>
-    <!-- <li><NuxtLink to="/htmls/Death_Star" >Death Star</NuxtLink></li> -->
     <li><NuxtLink to="/profiles/martinfeineis" >Resume</NuxtLink></li>
-    <!-- <li><Appalert /></li>
-    <Gosso /> -->
   </ul>
   </div>
 </template>
