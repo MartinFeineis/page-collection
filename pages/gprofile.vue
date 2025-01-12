@@ -19,7 +19,12 @@ const redirectToProfile = async () => {
   }
 };
 
-redirectToProfile();
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  redirectToProfile();
+});
+
 </script>
 
 <template>
