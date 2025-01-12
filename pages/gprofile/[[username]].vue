@@ -1,27 +1,21 @@
 <script setup>
-// Imports
 import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
-import { useSupabaseClient, useSupabaseUser } from '@supabase/auth-helpers-nuxt';
+import { useSupabaseClient, useSupabaseUser } from '#imports';
 
 // Reactive variables
-const username = ref('');
 const profileData = ref(null);
 const errorMessage = ref('');
 const isLoading = ref(false);
 
-// Supabase client and user
+// Access the Supabase client and user
 const supabase = useSupabaseClient();
 const user = useSupabaseUser();
-
-// Fetch the username from the route
-const route = useRoute();
-username.value = route.params.username || ''; // Handle undefined username gracefully
 
 // Function to load profile data
 const loadProfile = async () => {
   try {
-    isLoading.value = true; // Start loading
+    isLoading.value = true;
+
     if (!user.value) {
       throw new Error('User not authenticated');
     }
@@ -34,15 +28,15 @@ const loadProfile = async () => {
 
     if (error) throw error;
 
-    profileData.value = data; // Update profile data
+    profileData.value = data;
   } catch (err) {
-    errorMessage.value = err.message || 'Failed to load profile data';
+    errorMessage.value = err.message;
   } finally {
-    isLoading.value = false; // End loading
+    isLoading.value = false;
   }
 };
 
-// Use lifecycle hook
+// Lifecycle hook to fetch data
 onMounted(() => {
   loadProfile();
 });
@@ -50,10 +44,9 @@ onMounted(() => {
 
 <template>
   <div>
-    <Home /> <!-- Home component -->
-    <div v-if="isLoading">Loading profile...</div>
+    <div v-if="isLoading">Loading...</div>
     <div v-else-if="errorMessage">
-      <p class="error">Error: {{ errorMessage }}</p>
+      <p class="error">{{ errorMessage }}</p>
     </div>
     <div v-else>
       <h2>User Profile</h2>
