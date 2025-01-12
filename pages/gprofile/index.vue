@@ -24,5 +24,6 @@ redirectToProfile();
 </script>
 
 <template>
+  <h1>gprofile Index page</h1>
   <div>Loading...</div>
 </template>
