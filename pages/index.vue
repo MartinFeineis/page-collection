@@ -16,6 +16,6 @@
     <li><NuxtLink to="/profiles/martinfeineis" >Resume</NuxtLink></li>
   </ul>
   </div>
-  <p>Last Commit: testing new gpp 2</p>
+  <p>Last Commit: now with on-mounted</p>
 </template>
 
