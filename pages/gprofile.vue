@@ -1,52 +1,30 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue';
+import { useSupabaseUser, useSupabaseClient } from '#imports'; // Auto-imported in Nuxt.js
 import { useRouter } from 'vue-router';
-const error = ref(null)
-const data = ref()
-const username = ref()
-//const supabase = useSupabaseClient();
+
+const error = ref(null);
 const router = useRouter();
-const user = useSupabaseUser()
+const supabase = useSupabaseClient();
+const user = useSupabaseUser();
 
-// const redirectToProfile = async () => {
-//   const { data: user, error } = await supabase.auth.getUser();
-
-//   if (error) {
-//     console.log('Error fetching user:', error);
-//     return;
-//   }
-
-//   if (user) {
-//     const username = user.user_metadata.username || user.email.split('@')[0]; // Use a username or email prefix
-//     // Redirect to the dynamic profile page
-//     router.push(`/gprofile/${username}`);
-//   }
-// };
 const redirectToProfile = () => {
-  if (user) {
-    const username = user.user_metadata.username || user.email.split('@')[0]; // Use a username or email prefix
-    // Redirect to the dynamic profile page
+  if (user.value) {
+    const username = user.value.user_metadata?.username || user.value.email.split('@')[0];
     router.push(`/gprofile/${username}`);
-  }
-  else {
-    const error = "Not working!"
+  } else {
+    error.value = "User is not authenticated!";
   }
 };
-
-import { onMounted } from 'vue';
 
 onMounted(() => {
   redirectToProfile();
 });
-
 </script>
 
 <template>
-  <h1>gprofile Index page </h1>
-  <Home />
+  <h1>gprofile Index page</h1>
   <div>Loading...</div>
-  <p>Username: {{ username }}</p>
-  <p>data: {{ data }}</p>
   <p>user: {{ user }}</p>
   <p>error: {{ error }}</p>
 </template>
