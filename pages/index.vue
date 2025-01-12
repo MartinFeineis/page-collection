@@ -17,5 +17,6 @@
   </ul>
   </div>
   <p>Last Commit: now with on-mounted</p>
+  <p>Last Commit: fixed commit msg</p>
 </template>
 

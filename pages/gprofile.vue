@@ -30,4 +30,8 @@ onMounted(() => {
 <template>
   <h1>gprofile Index page </h1>
   <div>Loading...</div>
+  <p>Username: {{ username }}</p>
+  <p>data: {{ data }}</p>
+  <p>user: {{ user }}</p>
+  <p>error: {{ error }}</p>
 </template>
