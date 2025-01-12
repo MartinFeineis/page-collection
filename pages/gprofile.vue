@@ -1,21 +1,32 @@
 <script setup>
 import { useRouter } from 'vue-router';
 
-const supabase = useSupabaseClient();
+//const supabase = useSupabaseClient();
 const router = useRouter();
+const user = useSupabaseUser()
 
-const redirectToProfile = async () => {
-  const { data: user, error } = await supabase.auth.getUser();
+// const redirectToProfile = async () => {
+//   const { data: user, error } = await supabase.auth.getUser();
 
-  if (error) {
-    console.log('Error fetching user:', error);
-    return;
-  }
+//   if (error) {
+//     console.log('Error fetching user:', error);
+//     return;
+//   }
 
+//   if (user) {
+//     const username = user.user_metadata.username || user.email.split('@')[0]; // Use a username or email prefix
+//     // Redirect to the dynamic profile page
+//     router.push(`/gprofile/${username}`);
+//   }
+// };
+const redirectToProfile = () => {
   if (user) {
     const username = user.user_metadata.username || user.email.split('@')[0]; // Use a username or email prefix
     // Redirect to the dynamic profile page
     router.push(`/gprofile/${username}`);
+  }
+  else {
+    const error = "Not working!"
   }
 };
 
