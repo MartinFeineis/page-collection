@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useSupabaseClient, useSupabaseUser } from '#imports';
+import { useSupabaseClient } from '#imports';
 import { useRoute } from 'vue-router';
 import Inventory from '~/components/Inventory.vue';
 
@@ -12,16 +12,11 @@ const errorMessage = ref('');
 const isLoading = ref(false);
 
 const supabase = useSupabaseClient();
-const user = useSupabaseUser();
 
 // Function to load profile data
 const loadProfile = async () => {
   try {
     isLoading.value = true;
-
-    if (!user.value) {
-      throw new Error('User is not authenticated');
-    }
 
     const { data, error } = await supabase
       .from('profiles')
@@ -33,14 +28,14 @@ const loadProfile = async () => {
 
     profileData.value = data;
   } catch (err) {
-    errorMessage.value = err.message;
+    errorMessage.value = err.message || 'Failed to fetch profile data.';
   } finally {
     isLoading.value = false;
   }
 };
 
 onMounted(() => {
-  console.log("Route params:", route.params);
+  console.log('Route params:', route.params);
   loadProfile();
 });
 </script>
@@ -57,8 +52,8 @@ onMounted(() => {
       <p><strong>Bio:</strong> {{ profileData?.bio || 'N/A' }}</p>
       <img v-if="profileData?.avatar_url" :src="profileData.avatar_url" alt="Avatar" />
     </div>
+    <Inventory />
   </div>
-  <Inventory />
 </template>
 
 <style scoped>
