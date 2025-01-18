@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import { useSupabaseClient } from '#imports';
 import { useRoute } from 'vue-router';
 import Inventory from '~/components/Inventory.vue';
+import Locator from '~/components/Locator.vue';
 
 // Reactive variables
 const route = useRoute();
@@ -53,6 +54,7 @@ onMounted(() => {
       <img v-if="profileData?.avatar_url" :src="profileData.avatar_url" alt="Avatar" />
     </div>
     <Inventory />
+    <Locator />
   </div>
 </template>
 
