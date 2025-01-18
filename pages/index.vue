@@ -16,6 +16,6 @@
     <li><NuxtLink to="/profiles/martinfeineis" >Resume</NuxtLink></li>
   </ul>
   </div>
-              <p>Last Commit: locationing 1</p>"
+                <p>Last Commit: locationing 2</p>"
 </template>
 
