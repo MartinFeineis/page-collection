@@ -28,6 +28,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <Home />
   <h1>gprofile Index page</h1>
   <div>Loading...</div>
   <p>User: {{ user }}</p>
