@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import Locator from '~/components/Locator.vue';
+
+</script>
+
 <template>
   <Home />
   <div>
@@ -15,6 +20,7 @@
     <li><NuxtLink to="/searcher">Search Files and Directories</NuxtLink></li>
     <li><NuxtLink to="/profiles/martinfeineis" >Resume</NuxtLink></li>
   </ul>
+  <Locator />
   </div>
                 <p>Last Commit: locationing 2</p>"
 </template>

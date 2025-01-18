@@ -29,27 +29,9 @@ export function useLocation() {
     });
   };
 
-  const sendLocationToBackend = async (apiUrl) => {
-    try {
-      const loc = await getLocation();
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(loc),
-      });
-      return await response.json();
-    } catch (err) {
-      error.value = `Failed to send location: ${err}`;
-      throw err;
-    }
-  };
-
   return {
     location,
     error,
     getLocation,
-    sendLocationToBackend,
   };
 }
