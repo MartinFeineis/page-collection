@@ -7,7 +7,7 @@
       </div>
       <button @click="sendLocation">Send Location</button>
     </div>
-  </template>
+</template>
   
   <script>
   import { useLocation } from "@/composables/useLocation";
