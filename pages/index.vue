@@ -22,8 +22,7 @@ import Locator from '~/components/Locator.vue';
     <li><NuxtLink to="/profiles/martinfeineis" >Resume</NuxtLink></li>
   </ul>
   <Locator />
-  <Dloc />
   </div>
-            <p>Last Commit: resources added</p>
+              <p>Last Commit: fixed Dloc in idnex</p>
 </template>
 
