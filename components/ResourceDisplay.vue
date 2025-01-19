@@ -60,6 +60,13 @@
   };
   
   const gatherResource = async (resource) => {
+  const userId = supabase.auth.user()?.id // Get user ID from Supabase auth
+
+  if (!userId) {
+    alert('You must be logged in to gather resources.')
+    return
+  }
+
   try {
     const response = await fetch('/api/updateInventory', {
       method: 'POST',
@@ -69,6 +76,7 @@
       body: JSON.stringify({
         resourceType: resource.resource_type,
         resourceAmount: resource.resource_amount,
+        userId,
       }),
     })
 
@@ -82,6 +90,7 @@
     alert('An unexpected error occurred while gathering resource.')
   }
 }
+
 
   </script>
   
