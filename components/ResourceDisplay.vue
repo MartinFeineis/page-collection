@@ -32,11 +32,13 @@
   
   <script setup>
   import { ref } from "vue";
+import { useSupabaseUser } from '#imports'
   
   // State variables
   const resources = ref([]);
   const loading = ref(false);
   const error = ref("");
+  const user = useSupabaseUser()
   
   // Fetch resources from the API
   const fetchResources = async () => {
@@ -60,7 +62,7 @@
   };
   
   const gatherResource = async (resource) => {
-  const userId = supabase.auth.user()?.id // Get user ID from Supabase auth
+  const userId = user.value.id // Get user ID from Supabase auth
 
   if (!userId) {
     alert('You must be logged in to gather resources.')
