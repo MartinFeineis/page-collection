@@ -19,6 +19,7 @@
   "dependencies": {
     "@nuxtjs/supabase": "^1.4.1",
     "@slack/web-api": "^7.3.2",
+    "@supabase/supabase-js": "^2.47.16",
     "@vercel/postgres": "^0.8.0",
     "help": "^3.0.2",
     "nuxt-vue3-google-signin": "^0.0.11",

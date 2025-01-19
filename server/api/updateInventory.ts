@@ -1,36 +1,28 @@
-import { useSupabaseClient, useSupabaseAuthClient } from '#imports'
+import { createClient } from '@supabase/supabase-js'
 
 export default defineEventHandler(async (event) => {
-  const supabase = useSupabaseClient()
-  const authClient = useSupabaseAuthClient()
+  // Initialize Supabase client
+  const supabaseUrl = process.env.SUPABASE_URL
+  const supabaseKey = process.env.SUPABASE_KEY
+  const supabase = createClient(supabaseUrl, supabaseKey)
 
-  // Get the current user
-  const user = authClient.auth.user()
+  // Parse the request body
+  const body = await readBody(event)
+  const { resourceType, resourceAmount, userId } = body
 
-  if (!user) {
+  if (!resourceType || !resourceAmount || !userId) {
     return {
-      status: 401,
-      message: 'Unauthorized. Please log in to update inventory.',
+      status: 400,
+      message: 'Invalid input. resourceType, resourceAmount, and userId are required.',
     }
   }
 
   try {
-    // Parse the request body
-    const body = await readBody(event)
-    const { resourceType, resourceAmount } = body
-
-    if (!resourceType || !resourceAmount) {
-      return {
-        status: 400,
-        message: 'Invalid input. Both resourceType and resourceAmount are required.',
-      }
-    }
-
     // Fetch the current inventory for the user
     const { data: inventory, error: fetchError } = await supabase
       .from('inventory')
       .select('*')
-      .eq('user_id', user.id)
+      .eq('user_id', userId)
       .single()
 
     if (fetchError) {
@@ -45,7 +37,7 @@ export default defineEventHandler(async (event) => {
     const { error: updateError } = await supabase
       .from('inventory')
       .update({ [resourceType]: updatedAmount, updated_at: new Date().toISOString() })
-      .eq('user_id', user.id)
+      .eq('user_id', userId)
 
     if (updateError) {
       return {
