@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Dloc from '~/components/Dloc.vue';
 import Locator from '~/components/Locator.vue';
 
 </script>
@@ -20,9 +19,10 @@ import Locator from '~/components/Locator.vue';
     <li><NuxtLink to="/directory">Directory List page</NuxtLink></li>
     <li><NuxtLink to="/searcher">Search Files and Directories</NuxtLink></li>
     <li><NuxtLink to="/profiles/martinfeineis" >Resume</NuxtLink></li>
+    <li><NuxtLink to="/guser/testuser">Test user</NuxtLink></li>
   </ul>
   <Locator />
   </div>
-              <p>Last Commit: fixed Dloc in idnex</p>
+                <p>Last Commit: resources displaying</p>
 </template>
 

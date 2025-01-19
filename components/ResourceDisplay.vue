@@ -8,10 +8,9 @@
       <div v-if="resources.length > 0">
         <h2>Fetched Resources:</h2>
         <ul>
-          <li v-for="resource in resources" :key="resource.Resource_ID">
-            <strong>Type:</strong> {{ resource.Resource_Type }} | 
-            <strong>Amount:</strong> {{ resource.Resource_Amount }} | 
-            <strong>Username:</strong> {{ resource.Username }}
+          <li v-for="resource in resources" :key="resource.resource_id">
+            <strong>Type:</strong> {{ resource.resource_type }} | 
+            <strong>Amount:</strong> {{ resource.resource_amount }}
           </li>
         </ul>
       </div>
@@ -41,6 +40,7 @@
       }
   
       const data = await response.json();
+      console.log(data)
       resources.value = data.data; // Populate resources from the API response
     } catch (err) {
       error.value = err.message || "An unknown error occurred.";
