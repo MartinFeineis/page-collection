@@ -23,6 +23,6 @@ import Locator from '~/components/Locator.vue';
   </ul>
   <Locator />
   </div>
-                        <p>Last Commit: fixing supabase user for resources</p>
+                          <p>Last Commit: more fixes</p>
 </template>
 

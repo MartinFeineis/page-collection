@@ -19,7 +19,14 @@
             <tr v-for="resource in resources" :key="resource.resource_id">
               <td>{{ resource.resource_type }}</td>
               <td>{{ resource.resource_amount }}</td>
-              <td><button @click="gatherResource(resource)">Gather</button></td>
+              <td>
+                <button 
+                  @click="gatherResource(resource)" 
+                  :disabled="resource.loading"
+                >
+                  {{ resource.loading ? "Gathering..." : "Gather" }}
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -32,13 +39,13 @@
   
   <script setup>
   import { ref } from "vue";
-import { useSupabaseUser } from '#imports'
+  import { useSupabaseUser } from "#imports";
   
   // State variables
   const resources = ref([]);
   const loading = ref(false);
   const error = ref("");
-  const user = useSupabaseUser()
+  const user = useSupabaseUser();
   
   // Fetch resources from the API
   const fetchResources = async () => {
@@ -52,48 +59,56 @@ import { useSupabaseUser } from '#imports'
       }
   
       const data = await response.json();
-      console.log(data);
-      resources.value = data.data; // Populate resources from the API response
+      resources.value = data.data.map((resource) => ({
+        ...resource,
+        loading: false, // Add loading state to each resource
+      }));
     } catch (err) {
+      console.error("Error fetching resources:", err);
       error.value = err.message || "An unknown error occurred.";
     } finally {
       loading.value = false;
     }
   };
   
+  // Gather resource from the API
   const gatherResource = async (resource) => {
-  const userId = user.value.id // Get user ID from Supabase auth
-
-  if (!userId) {
-    alert('You must be logged in to gather resources.')
-    return
-  }
-
-  try {
-    const response = await fetch('/api/updateInventory', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        resourceType: resource.resource_type,
-        resourceAmount: resource.resource_amount,
-        userId,
-      }),
-    })
-
-    const data = await response.json()
-    if (response.ok) {
-      alert(`Successfully gathered ${resource.resource_amount} of ${resource.resource_type}.`)
-    } else {
-      alert(`Failed to gather resource: ${data.message}`)
+    if (!user.value || !user.value.id) {
+      alert("You must be logged in to gather resources.");
+      return;
     }
-  } catch (error) {
-    alert('An unexpected error occurred while gathering resource.')
-  }
-}
-
-
+  
+    const userId = user.value.id;
+    resource.loading = true; // Set resource loading state
+  
+    try {
+      const response = await fetch("/api/updateInventory", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          resourceType: resource.resource_type,
+          resourceAmount: resource.resource_amount,
+          userId,
+        }),
+      });
+  
+      const data = await response.json();
+      if (response.ok) {
+        alert(
+          `Successfully gathered ${resource.resource_amount} of ${resource.resource_type}.`
+        );
+      } else {
+        alert(`Failed to gather resource: ${data.message}`);
+      }
+    } catch (err) {
+      console.error("Error gathering resource:", err);
+      alert("An unexpected error occurred while gathering resource.");
+    } finally {
+      resource.loading = false; // Reset resource loading state
+    }
+  };
   </script>
   
   <style scoped>
@@ -128,7 +143,8 @@ import { useSupabaseUser } from '#imports'
     margin-top: 1rem;
   }
   
-  th, td {
+  th,
+  td {
     padding: 0.75rem;
     text-align: left;
     border: 1px solid #ddd;
