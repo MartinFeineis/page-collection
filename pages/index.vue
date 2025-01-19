@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Dloc from '~/components/Dloc.vue';
 import Locator from '~/components/Locator.vue';
 
 </script>
@@ -21,7 +22,8 @@ import Locator from '~/components/Locator.vue';
     <li><NuxtLink to="/profiles/martinfeineis" >Resume</NuxtLink></li>
   </ul>
   <Locator />
+  <Dloc />
   </div>
-                  <p>Last Commit: locationing 4</p>"
+    <p>Last Commit: locationing 5</p>
 </template>
 
