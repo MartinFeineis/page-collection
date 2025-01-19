@@ -42,6 +42,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <Home />
   <div>
     <div v-if="isLoading">Loading...</div>
     <div v-else-if="errorMessage">

@@ -24,6 +24,6 @@ import Locator from '~/components/Locator.vue';
   <Locator />
   <Dloc />
   </div>
-    <p>Last Commit: locationing 5</p>
+      <p>Last Commit: adding home to profile</p>
 </template>
 
