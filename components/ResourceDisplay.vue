@@ -7,12 +7,22 @@
       <div v-if="error" class="error">{{ error }}</div>
       <div v-if="resources.length > 0">
         <h2>Fetched Resources:</h2>
-        <ul>
-          <li v-for="resource in resources" :key="resource.resource_id">
-            <strong>Type:</strong> {{ resource.resource_type }} | 
-            <strong>Amount:</strong> {{ resource.resource_amount }}
-          </li>
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Resource Type</th>
+              <th>Amount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="resource in resources" :key="resource.resource_id">
+              <td>{{ resource.resource_type }}</td>
+              <td>{{ resource.resource_amount }}</td>
+              <td><button @click="gatherResource(resource)">Gather</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div v-else-if="!loading && !error">
         <p>No resources to display. Click the button to fetch!</p>
@@ -40,7 +50,7 @@
       }
   
       const data = await response.json();
-      console.log(data)
+      console.log(data);
       resources.value = data.data; // Populate resources from the API response
     } catch (err) {
       error.value = err.message || "An unknown error occurred.";
@@ -48,6 +58,31 @@
       loading.value = false;
     }
   };
+  
+  const gatherResource = async (resource) => {
+  try {
+    const response = await fetch('/api/updateInventory', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        resourceType: resource.resource_type,
+        resourceAmount: resource.resource_amount,
+      }),
+    })
+
+    const data = await response.json()
+    if (response.ok) {
+      alert(`Successfully gathered ${resource.resource_amount} of ${resource.resource_type}.`)
+    } else {
+      alert(`Failed to gather resource: ${data.message}`)
+    }
+  } catch (error) {
+    alert('An unexpected error occurred while gathering resource.')
+  }
+}
+
   </script>
   
   <style scoped>
@@ -76,16 +111,38 @@
     margin-top: 1rem;
   }
   
-  ul {
-    list-style: none;
-    padding: 0;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
   }
   
-  li {
-    margin: 0.5rem 0;
-    padding: 0.5rem;
+  th, td {
+    padding: 0.75rem;
+    text-align: left;
     border: 1px solid #ddd;
-    border-radius: 5px;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  td button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  td button:hover {
+    background-color: #218838;
   }
   </style>
   
