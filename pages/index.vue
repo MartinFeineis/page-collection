@@ -24,6 +24,6 @@ import Locator from '~/components/Locator.vue';
   <Locator />
   <Dloc />
   </div>
-          <p>Last Commit: clean up 4</p>
+            <p>Last Commit: resources added</p>
 </template>
 

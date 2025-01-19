@@ -56,6 +56,7 @@ onMounted(() => {
     </div>
     <Inventory />
     <Locator />
+    <ResourceDisplay />
   </div>
 </template>
 
