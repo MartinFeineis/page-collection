@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
   const supabaseKey = process.env.SUPABASE_SERVICE;
 
   if (!supabaseUrl || !supabaseKey) {
-    throw new Error('Missing SUPABASE_URL or SUPABASE_KEY environment variables.');
+    throw new Error('upInv L10 Missing SUPABASE_URL or SUPABASE_KEY environment variables.');
   }
 
   const supabase = createClient(supabaseUrl, supabaseKey);
@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event);
   const { resource_id, userId } = body;
 
-  console.log('Incoming Request:', { resource_id, userId });
+  console.log('upInv L19 Incoming Request:', { resource_id, userId });
 
   if (!resource_id || !userId) {
     console.warn('Invalid input detected:', { resource_id, userId });
@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
     // Initialize Vercel Postgres pool
     const pool = createPool();
 
-    console.log('Querying Vercel Postgres for resource_id:', resource_id);
+    console.log('upInv L33 Querying Vercel Postgres for resource_id:', resource_id);
 
     // Query the Vercel Postgres database for the resource
     const result = await sql`
@@ -40,7 +40,7 @@ export default defineEventHandler(async (event) => {
     `;
 
     if (result.rowCount === 0) {
-      console.warn('Resource not found for resource_id:', resource_id);
+      console.warn('upInv L43 Resource not found for resource_id:', resource_id);
       return {
         status: 404,
         message: 'Resource not found.',
@@ -48,10 +48,10 @@ export default defineEventHandler(async (event) => {
     }
 
     const { resource_type, resource_amount } = result.rows[0];
-    console.log('Resource Retrieved:', { resource_type, resource_amount });
+    console.log('upInv L51 Resource Retrieved:', { resource_type, resource_amount });
 
     // Fetch the current inventory for the user
-    console.log('Querying inventory for userId:', userId);
+    console.log('upInv L54 Querying inventory for userId:', userId);
 
     const { data: inventory, error: fetchError } = await supabase
       .from('inventory')
@@ -59,10 +59,10 @@ export default defineEventHandler(async (event) => {
       .eq('user_id', userId)
       .maybeSingle();
 
-    console.log('Inventory Fetch Result:', { inventory, fetchError });
+    console.log('upInv L62 Inventory Fetch Result:', { inventory, fetchError });
 
     if (!inventory) {
-      console.warn('No inventory found for userId:', userId);
+      console.warn('upInv L65 No inventory found for userId:', userId);
       return {
         status: 404,
         message: 'Inventory not found.',
@@ -70,7 +70,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (fetchError) {
-      console.error('Fetch inventory error:', fetchError);
+      console.error('upInv L73 Fetch inventory error:', fetchError);
       return {
         status: 500,
         message: 'Error fetching inventory.',
@@ -79,17 +79,17 @@ export default defineEventHandler(async (event) => {
 
     // Update the inventory for the retrieved resource type
     const updatedAmount = (inventory[resource_type] || 0) + resource_amount;
-    console.log('Updating inventory for resource:', { resource_type, updatedAmount });
+    console.log('upInv L82 Updating inventory for resource:', { resource_type, updatedAmount });
 
     const { error: updateError } = await supabase
       .from('inventory')
       .update({ [resource_type]: updatedAmount, updated_at: new Date().toISOString() })
       .eq('user_id', userId);
 
-    console.log('Update Result:', { updateError });
+    console.log('upInv L89 Update Result:', { updateError });
 
     if (updateError) {
-      console.error('Update inventory error:', updateError);
+      console.error('upInv L92 Update inventory error:', updateError);
       return {
         status: 500,
         message: 'Failed to update inventory.',
@@ -97,7 +97,7 @@ export default defineEventHandler(async (event) => {
     }
 
     // Fetch and return the updated inventory
-    console.log('Fetching updated inventory for userId:', userId);
+    console.log('upInv L100 Fetching updated inventory for userId:', userId);
 
     const { data: updatedInventory, error: fetchUpdatedError } = await supabase
       .from('inventory')
@@ -105,10 +105,10 @@ export default defineEventHandler(async (event) => {
       .eq('user_id', userId)
       .single();
 
-    console.log('Updated Inventory Fetch Result:', { updatedInventory, fetchUpdatedError });
+    console.log('upInv L108 Updated Inventory Fetch Result:', { updatedInventory, fetchUpdatedError });
 
     if (fetchUpdatedError) {
-      console.error('Fetch updated inventory error:', fetchUpdatedError);
+      console.error('upInv L111 Fetch updated inventory error:', fetchUpdatedError);
       return {
         status: 500,
         message: 'Failed to fetch updated inventory.',
@@ -121,7 +121,7 @@ export default defineEventHandler(async (event) => {
       updatedInventory,
     };
   } catch (error) {
-    console.error('Unexpected error:', error);
+    console.error('upInv L124 Unexpected error:', error);
     return {
       status: 500,
       message: 'An unexpected error occurred.',

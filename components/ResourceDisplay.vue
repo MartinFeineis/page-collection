@@ -108,7 +108,7 @@ const gatherResource = async (resource) => {
     }
   } catch (err) {
     console.error("RDsp L110 Error gathering resource:", err);
-    alert("RDsp L111 An unexpected error occurred while gathering resource.");
+    alert("RDsp L111 An unexpected error occurred while gathering resource.", err);
   } finally {
     resource.loading = false;
   }
