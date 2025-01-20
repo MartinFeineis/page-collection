@@ -23,7 +23,6 @@
     "@supabase/supabase-js": "^2.47.16",
     "@vercel/postgres": "^0.8.0",
     "h3-js": "^4.1.0",
-    "h3-node": "^4.1.1",
     "help": "^3.0.2",
     "nuxt-vue3-google-signin": "^0.0.11",
     "oidc-provider": "^8.4.3",
