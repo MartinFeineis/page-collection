@@ -11,7 +11,7 @@ export const useInventoryStore = defineStore("inventory", {
             const supabase = useSupabaseClient();
           
             try {
-              console.log("Fetching inventory for userId:", userId); // Debug log
+              console.log("inv.js L14 Fetching inventory for userId:", userId); // Debug log
               const { data, error } = await supabase
                 .from("inventory")
                 .select("*")
@@ -19,14 +19,14 @@ export const useInventoryStore = defineStore("inventory", {
                 .single();
           
               if (error) {
-                console.error("Error fetching inventory:", error);
+                console.error("inv.js L22 Error fetching inventory:", error);
                 return;
               }
           
-              console.log("Fetched inventory:", data); // Debug log
+              console.log("inv.js L26 Fetched inventory:", data); // Debug log
               this.inventory = data || {};
             } catch (err) {
-              console.error("Unexpected error fetching inventory:", err);
+              console.error("inv.js L29 Unexpected error fetching inventory:", err);
             }
           },
   

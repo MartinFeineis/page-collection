@@ -55,7 +55,7 @@ const fetchResources = async () => {
   try {
     const response = await fetch("/api/findresources");
     if (!response.ok) {
-      throw new Error("Failed to fetch resources.");
+      throw new Error("RDsp L58 Failed to fetch resources.");
     }
 
     const data = await response.json();
@@ -65,8 +65,8 @@ const fetchResources = async () => {
       gathered: false, // Add gathered state to track successful requests
     }));
   } catch (err) {
-    console.error("Error fetching resources:", err);
-    error.value = err.message || "An unknown error occurred.";
+    console.error("RDsp L68 Error fetching resources:", err);
+    error.value = err.message || "RDsp L69 An unknown error occurred.";
   } finally {
     loading.value = false;
   }
@@ -107,8 +107,8 @@ const gatherResource = async (resource) => {
       alert(`Failed to gather resource: ${data.message}`);
     }
   } catch (err) {
-    console.error("Error gathering resource:", err);
-    alert("An unexpected error occurred while gathering resource.");
+    console.error("RDsp L110 Error gathering resource:", err);
+    alert("RDsp L111 An unexpected error occurred while gathering resource.");
   } finally {
     resource.loading = false;
   }
