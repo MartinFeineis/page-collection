@@ -23,6 +23,6 @@ import Locator from '~/components/Locator.vue';
   </ul>
   <Locator />
   </div>
-                                    <p>Last Commit: added userId</p>
+                                      <p>Last Commit: no reloads</p>
 </template>
 

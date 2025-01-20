@@ -89,14 +89,19 @@ const gatherResource = async (resource) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        resource_id: resource.resource_id, // Include resource_id
-        userId,                           // Include user_id
+        resource_id: resource.resource_id,
+        userId,
       }),
     });
 
     const data = await response.json();
     if (response.ok) {
-      resource.gathered = true; // Mark the resource as gathered
+      resource.gathered = true;
+
+      // Update the inventory store with the new resource amount
+      const inventoryStore = useInventoryStore();
+      inventoryStore.updateResource(resource.resource_type, data.updatedInventory[resource.resource_type]);
+
       alert(`Successfully gathered resource with ID: ${resource.resource_id}.`);
     } else {
       alert(`Failed to gather resource: ${data.message}`);
