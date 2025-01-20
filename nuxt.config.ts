@@ -9,18 +9,13 @@ export default defineNuxtConfig({
   // },
   // plugins: ['~/plugins/db.js'],
   modules: [
-    '@nuxtjs/supabase'
-  //   'nuxt-vue3-google-signin',
   //   '@nuxthub/core',
-  ],
+  '@nuxtjs/supabase', '@pinia/nuxt'],
   supabase: {
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_KEY,
     redirect: false,
   },
-  // googleSignIn: {
-  //   clientId: '969151254190-pl534uplm25np58ajk2fi93hhidqp4pn.apps.googleusercontent.coms',
-  // },
   app: {
     head: {
       link: [
