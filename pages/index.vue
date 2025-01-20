@@ -23,6 +23,6 @@ import Locator from '~/components/Locator.vue';
   </ul>
   <Locator />
   </div>
-                                                        <p>Last Commit: added flashing</p>
+                                                          <p>Last Commit: remove gathered resources</p>
 </template>
 

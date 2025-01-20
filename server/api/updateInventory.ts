@@ -96,8 +96,26 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    // Delete the resource row from the Vercel Postgres database
+    console.log('upInv L102 Deleting resource from Vercel Postgres:', resource_id);
+
+    const deleteResult = await sql`
+      DELETE FROM resources
+      WHERE resource_id = ${resource_id};
+    `;
+
+    if (deleteResult.rowCount === 0) {
+      console.warn('upInv L107 Failed to delete resource:', resource_id);
+      return {
+        status: 500,
+        message: 'Failed to delete resource from the database.',
+      };
+    }
+
+    console.log('upInv L110 Resource successfully deleted from Vercel Postgres:', resource_id);
+
     // Fetch and return the updated inventory
-    console.log('upInv L100 Fetching updated inventory for userId:', userId);
+    console.log('upInv L113 Fetching updated inventory for userId:', userId);
 
     const { data: updatedInventory, error: fetchUpdatedError } = await supabase
       .from('inventory')
@@ -105,10 +123,10 @@ export default defineEventHandler(async (event) => {
       .eq('user_id', userId)
       .single();
 
-    console.log('upInv L108 Updated Inventory Fetch Result:', { updatedInventory, fetchUpdatedError });
+    console.log('upInv L121 Updated Inventory Fetch Result:', { updatedInventory, fetchUpdatedError });
 
     if (fetchUpdatedError) {
-      console.error('upInv L111 Fetch updated inventory error:', fetchUpdatedError);
+      console.error('upInv L124 Fetch updated inventory error:', fetchUpdatedError);
       return {
         status: 500,
         message: 'Failed to fetch updated inventory.',
@@ -117,11 +135,11 @@ export default defineEventHandler(async (event) => {
 
     return {
       status: 200,
-      message: 'Inventory updated successfully.',
+      message: 'Inventory updated successfully, and resource deleted.',
       updatedInventory,
     };
   } catch (error) {
-    console.error('upInv L124 Unexpected error:', error);
+    console.error('upInv L132 Unexpected error:', error);
     return {
       status: 500,
       message: 'An unexpected error occurred.',
