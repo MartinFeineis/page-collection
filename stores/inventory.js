@@ -1,6 +1,6 @@
 // stores/inventory.js
 import { defineStore } from "pinia";
-import { useSupabaseClient } from "@supabase/supabase-js";
+import { useSupabaseClient } from "#imports";
 
 export const useInventoryStore = defineStore("inventory", {
   state: () => ({

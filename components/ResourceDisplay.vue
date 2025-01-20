@@ -102,7 +102,7 @@ const gatherResource = async (resource) => {
       const inventoryStore = useInventoryStore();
       inventoryStore.updateResource(resource.resource_type, data.updatedInventory[resource.resource_type]);
 
-      alert(`Successfully gathered resource with ID: ${resource.resource_id}.`);
+      //alert(`Successfully gathered resource with ID: ${resource.resource_id}.`);
     } else {
       alert(`Failed to gather resource: ${data.message}`);
     }
