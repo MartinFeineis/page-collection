@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import { createPool, sql } from '@vercel/postgres';
 
 export default defineEventHandler(async (event) => {
   // Initialize Supabase client
@@ -13,32 +14,45 @@ export default defineEventHandler(async (event) => {
 
   // Parse the request body
   const body = await readBody(event);
-  const { resourceType, resourceAmount, userId } = body;
+  const { resource_id, userId } = body;
 
-  console.log('Incoming Request:', { resourceType, resourceAmount, userId });
+  console.log('Incoming Request:', { resource_id, userId });
 
-  if (!resourceType || !resourceAmount || !userId) {
-    console.warn('Invalid input detected:', { resourceType, resourceAmount, userId });
+  if (!resource_id || !userId) {
+    console.warn('Invalid input detected:', { resource_id, userId });
     return {
       status: 400,
-      message: 'Invalid input. resourceType, resourceAmount, and userId are required.',
-    };
-  }
-
-  // Validate resourceType
-  const validResourceTypes = ['gold', 'stone', 'lumber', 'water', 'food'];
-  if (!validResourceTypes.includes(resourceType)) {
-    console.warn('Invalid resourceType provided:', resourceType);
-    return {
-      status: 400,
-      message: `Invalid resourceType. Must be one of: ${validResourceTypes.join(', ')}`,
+      message: 'Invalid input. resource_id and userId are required.',
     };
   }
 
   try {
-    console.log('Querying inventory for userId:', userId);
+    // Initialize Vercel Postgres pool
+    const pool = createPool();
+
+    console.log('Querying Vercel Postgres for resource_id:', resource_id);
+
+    // Query the Vercel Postgres database for the resource
+    const result = await sql`
+      SELECT resource_type, resource_amount
+      FROM resources
+      WHERE resource_id = ${resource_id};
+    `;
+
+    if (result.rowCount === 0) {
+      console.warn('Resource not found for resource_id:', resource_id);
+      return {
+        status: 404,
+        message: 'Resource not found.',
+      };
+    }
+
+    const { resource_type, resource_amount } = result.rows[0];
+    console.log('Resource Retrieved:', { resource_type, resource_amount });
 
     // Fetch the current inventory for the user
+    console.log('Querying inventory for userId:', userId);
+
     const { data: inventory, error: fetchError } = await supabase
       .from('inventory')
       .select('*')
@@ -63,13 +77,13 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    // Update the inventory for the specified resource type
-    const updatedAmount = (inventory[resourceType] || 0) + resourceAmount;
-    console.log('Updating inventory for resource:', { resourceType, updatedAmount });
+    // Update the inventory for the retrieved resource type
+    const updatedAmount = (inventory[resource_type] || 0) + resource_amount;
+    console.log('Updating inventory for resource:', { resource_type, updatedAmount });
 
     const { error: updateError } = await supabase
       .from('inventory')
-      .update({ [resourceType]: updatedAmount, updated_at: new Date().toISOString() })
+      .update({ [resource_type]: updatedAmount, updated_at: new Date().toISOString() })
       .eq('user_id', userId);
 
     console.log('Update Result:', { updateError });
