@@ -31,7 +31,7 @@ export default {
         (position) => {
           const { latitude, longitude } = position.coords;
           location.value = { latitude, longitude };
-          h3Index.value = h3.geoToH3(latitude, longitude, H3_RESOLUTION); // Use correct path
+          h3Index.value = h3.latLngToCell(latitude, longitude, H3_RESOLUTION); // Use correct path
           error.value = null;
         },
         (err) => {
