@@ -23,6 +23,6 @@ import Locator from '~/components/Locator.vue';
   </ul>
   <Locator />
   </div>
-                                          <p>Last Commit: fixing pinia ssr</p>
+                                            <p>Last Commit: try fixing inventory</p>
 </template>
 
