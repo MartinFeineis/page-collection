@@ -11,7 +11,7 @@
 
 <script>
 import { ref } from "vue";
-import { geoToH3 } from "h3-js"; // Import the H3 library
+import * as h3 from "h3-js"; // Correct import for h3-js
 
 export default {
   name: "DisplayLocation",
@@ -19,7 +19,7 @@ export default {
     const location = ref(null);
     const error = ref(null);
     const h3Index = ref(null);
-    const H3_RESOLUTION = 8; // Granularity of approximately 500 meters
+    const H3_RESOLUTION = 8;
 
     const fetchLocation = async () => {
       if (!navigator.geolocation) {
@@ -31,7 +31,7 @@ export default {
         (position) => {
           const { latitude, longitude } = position.coords;
           location.value = { latitude, longitude };
-          h3Index.value = geoToH3(latitude, longitude, H3_RESOLUTION); // Convert to H3 index
+          h3Index.value = h3.geoToH3(latitude, longitude, H3_RESOLUTION); // Use correct path
           error.value = null;
         },
         (err) => {

@@ -24,6 +24,6 @@ import Locator from '~/components/Locator.vue';
   <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
   <Locator />
   </div>
-                                                                <p>Last Commit: attribution</p>
+      <p>Last Commit: retrying h3</p>
 </template>
 
