@@ -79,7 +79,7 @@ const gatherResource = async (resource) => {
     return;
   }
 
-  const resourceId = resource.resource_id;
+  const userId = user.value.id;
   resource.loading = true;
 
   try {
@@ -88,13 +88,16 @@ const gatherResource = async (resource) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ resource_id: resourceId }),
+      body: JSON.stringify({
+        resource_id: resource.resource_id, // Include resource_id
+        userId,                           // Include user_id
+      }),
     });
 
     const data = await response.json();
     if (response.ok) {
       resource.gathered = true; // Mark the resource as gathered
-      alert(`Successfully gathered resource with ID: ${resourceId}.`);
+      alert(`Successfully gathered resource with ID: ${resource.resource_id}.`);
     } else {
       alert(`Failed to gather resource: ${data.message}`);
     }
