@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref } from "vue";
 import { useInventoryStore } from "@/stores/inventory";
 import { useSupabaseUser } from "#imports";
 import { useAsyncData } from "#app";
@@ -30,32 +30,8 @@ import { useAsyncData } from "#app";
 const inventoryStore = useInventoryStore();
 const user = useSupabaseUser();
 
-// State to track flashing resource types
+// Track which resources should flash
 const flashingResources = ref({});
-
-// Watch for inventory changes and trigger the flash effect
-watch(
-  () => inventoryStore.inventory,
-  (newInventory, oldInventory) => {
-    if (!oldInventory) return;
-
-    for (const resourceType in newInventory) {
-      if (
-        oldInventory[resourceType] !== undefined &&
-        newInventory[resourceType] !== oldInventory[resourceType]
-      ) {
-        // Trigger flash for updated resource
-        flashingResources.value[resourceType] = true;
-
-        // Remove the flash class after 1 second
-        setTimeout(() => {
-          flashingResources.value[resourceType] = false;
-        }, 1000);
-      }
-    }
-  },
-  { deep: true } // Watch deeply for changes in inventory values
-);
 
 // Fetch inventory using useAsyncData
 const { data: inventoryData, error } = await useAsyncData(async () => {
@@ -65,9 +41,27 @@ const { data: inventoryData, error } = await useAsyncData(async () => {
   return inventoryStore.inventory; // Return the inventory data
 });
 
-// Update the inventory store when data is ready
+// Update the inventory store when data is ready and trigger flash
 if (inventoryData.value) {
+  const oldInventory = { ...inventoryStore.inventory }; // Clone current inventory
+
   inventoryStore.inventory = inventoryData.value;
+
+  // Compare old and new inventory values to trigger flash
+  for (const resourceType in inventoryStore.inventory) {
+    if (
+      oldInventory[resourceType] !== undefined &&
+      inventoryStore.inventory[resourceType] !== oldInventory[resourceType]
+    ) {
+      // Trigger flash for updated resource
+      flashingResources.value[resourceType] = true;
+
+      // Remove the flash class after 1 second
+      setTimeout(() => {
+        flashingResources.value[resourceType] = false;
+      }, 1000);
+    }
+  }
 }
 </script>
 
