@@ -40,6 +40,7 @@
 <script setup>
 import { ref } from "vue";
 import { useSupabaseUser } from "#imports";
+import { useInventoryStore } from "@/stores/inventory";
 
 // State variables
 const resources = ref([]);
