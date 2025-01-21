@@ -5,6 +5,7 @@
     <div v-else-if="location">
       <p>Latitude: {{ location.latitude }}</p>
       <p>Longitude: {{ location.longitude }}</p>
+      <p>H3 Index: {{  h3index }}</p>
     </div>
     <button @click="fetchLocation">Get Location</button>
   </div>
@@ -12,6 +13,7 @@
 
 <script>
 import { ref } from "vue";
+import {latLngToCell} from "h3-js";
 
 export default {
   name: "DisplayLocation",
@@ -38,11 +40,12 @@ export default {
         }
       );
     };
-
+    const h3index = h3.latLngToCell(latitude, longitude, 8);
     return {
       location,
       error,
       fetchLocation,
+      h3index,
     };
   },
 };
