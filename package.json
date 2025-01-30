@@ -13,8 +13,8 @@
     "@nuxt/devtools": "latest",
     "@nuxthub/core": "^0.7.34",
     "@pinia/nuxt": "^0.9.0",
-    "nuxt": "^3.15.2",
-    "vue": "^3.3.4",
+    "nuxt": "^3.15.3",
+    "vue": "latest",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
@@ -28,6 +28,7 @@
     "pg": "^8.13.0",
     "pinia": "^2.3.0",
     "postgres": "^3.4.4",
+    "tinyexec": "^0.3.2",
     "uuid": "^11.0.5",
     "vue-qrcode-reader": "^5.3.9"
   }
