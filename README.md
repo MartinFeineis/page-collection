@@ -1,5 +1,7 @@
 # Pages Notes
 
+compatibilityDate: '2025-01-31 in nuxt.config
+
 [plugin:vite-plugin-vue-inspector] Attribute name cannot contain U+0022 ("), U+0027 ('), and U+003C (<).
 <p>https://media.404founders.com/martinfeineis/profile.json</p>
 Certainly! The part of the code `= () => {}` is an arrow function expression in JavaScript. It's a concise way to write function expressions in JavaScript and is particularly useful for inline functions and callbacks. Here's a breakdown of the syntax:
