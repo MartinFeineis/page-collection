@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import Locator from '~/components/Locator.vue';
-
-</script>
-
 <template>
   <Home />
   <div>
@@ -24,6 +19,6 @@ import Locator from '~/components/Locator.vue';
   <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
   <Locator />
   </div>
-                          <p>Last Commit: Locator fix</p>
+    <p>Last Commit: removed locator from index</p>
 </template>
 
