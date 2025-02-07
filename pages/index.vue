@@ -17,8 +17,7 @@
     <li><NuxtLink to="/guser/testuser">Test user</NuxtLink></li>
   </ul>
   <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
-  <Locator />
   </div>
-    <p>Last Commit: removed locator from index</p>
+      <p>Last Commit: removed locator from index now</p>
 </template>
 
