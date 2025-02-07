@@ -5,7 +5,7 @@
     <div v-else-if="location">
       <p>Latitude: {{ location.latitude }}</p>
       <p>Longitude: {{ location.longitude }}</p>
-      <p>H3 Index: {{  h3index }}</p>
+      <p>H3 Index: {{ h3index }}</p>
     </div>
     <button @click="fetchLocation">Get Location</button>
   </div>
@@ -13,13 +13,14 @@
 
 <script>
 import { ref } from "vue";
-import {latLngToCell} from "h3-js";
+import { latLngToCell } from "h3-js";
 
 export default {
   name: "DisplayLocation",
   setup() {
     const location = ref(null);
     const error = ref(null);
+    const h3index = ref(null); // Make it reactive
 
     const fetchLocation = async () => {
       if (!navigator.geolocation) {
@@ -29,10 +30,11 @@ export default {
 
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          location.value = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          };
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          
+          location.value = { latitude, longitude };
+          h3index.value = latLngToCell(latitude, longitude, 8); // Calculate H3 index
           error.value = null;
         },
         (err) => {
@@ -40,7 +42,7 @@ export default {
         }
       );
     };
-    const h3index = h3.latLngToCell(latitude, longitude, 8);
+
     return {
       location,
       error,
