@@ -18,6 +18,6 @@
   </ul>
   <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
   </div>
-      <p>Last Commit: removed locator from index now</p>
+      <p>Last Commit: h3 notes</p>
 </template>
 
