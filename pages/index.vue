@@ -18,6 +18,6 @@
   </ul>
   <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
   </div>
-      <p>Last Commit: fixing runtime</p>
+      <p>Last Commit: take any amount of indexes</p>
 </template>
 
