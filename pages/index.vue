@@ -18,6 +18,6 @@
   </ul>
   <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
   </div>
-      <p>Last Commit: removed CityFinder component</p>
+      <p>Last Commit: chatgpt fix 2</p>
 </template>
 

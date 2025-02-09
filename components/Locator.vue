@@ -9,20 +9,23 @@
       <p>Neighbors: {{ response }}</p>
     </div>
     <button @click="fetchLocation">Get Location</button>
+    <button @click="fetchCities" :disabled="!h3index">Find Nearby Cities</button>
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
-import { latLngToCell } from "h3-js";
-const API_URL = '/api/loc';
+import { latLngToCell, gridDisk } from "h3-js";
+
+const API_URL = "/api/loc";
 
 export default {
   name: "DisplayLocation",
   setup() {
     const location = ref(null);
     const error = ref(null);
-    const h3index = ref(null); // Make it reactive
+    const h3index = ref(null);
+    const response = ref(null); // Make response reactive
 
     const fetchLocation = async () => {
       if (!navigator.geolocation) {
@@ -34,7 +37,7 @@ export default {
         (position) => {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
-          
+
           location.value = { latitude, longitude };
           h3index.value = latLngToCell(latitude, longitude, 8); // Calculate H3 index
           error.value = null;
@@ -44,31 +47,31 @@ export default {
         }
       );
     };
-  const fetchCities = async () => {
-  if (!currentH3.value) {
-    console.error("No H3 index available.");
-    return;
-  }
 
-  // Get neighboring H3 indexes (ring size = 2)
-  const ringSize = 2;
-  const h3Indexes = h3.gridDisk(h3index.value, ringSize);
+    const fetchCities = async () => {
+      if (!h3index.value) {
+        console.error("No H3 index available.");
+        return;
+      }
 
-  console.log("Sending H3 indexes to API:", h3Indexes);
+      // Get neighboring H3 indexes (ring size = 2)
+      const ringSize = 2;
+      const h3Indexes = gridDisk(h3index.value, ringSize);
 
-  try {
-    // Call the API
-    const response = await fetch(`${API_URL}?h3indexes=${h3Indexes.join(',')}`);
-    const data = await response.json();
+      console.log("Sending H3 indexes to API:", h3Indexes);
 
-    // Filter results to include only cities
-    cities.value = data.locations.filter(loc => loc.city);
+      try {
+        const res = await fetch(`${API_URL}?h3indexes=${h3Indexes.join(",")}`);
+        const data = await res.json();
 
-    console.log("Cities received:", cities.value);
-  } catch (error) {
-    console.error("Error fetching city data:", error);
-  }
-};
+        // Store API response
+        response.value = data.locations.filter((loc) => loc.city);
+
+        console.log("Cities received:", response.value);
+      } catch (err) {
+        console.error("Error fetching city data:", err);
+      }
+    };
 
     return {
       location,
@@ -76,6 +79,7 @@ export default {
       fetchLocation,
       h3index,
       response,
+      fetchCities, // Include fetchCities in return
     };
   },
 };
