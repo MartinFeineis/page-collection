@@ -18,6 +18,6 @@
   </ul>
   <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
   </div>
-      <p>Last Commit: get neighbours</p>
+      <p>Last Commit: fix loc 1</p>
 </template>
 
