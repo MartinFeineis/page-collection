@@ -18,6 +18,6 @@
   </ul>
   <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
   </div>
-      <p>Last Commit: location logging</p>
+      <p>Last Commit: adding http verb</p>
 </template>
 
