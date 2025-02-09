@@ -1,9 +1,8 @@
 import { defineEventHandler, getQuery } from 'h3';
-import { Pool } from 'pg';
+import { createPool, sql } from '@vercel/postgres';
+import h3 from 'h3-js';
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL, // Ensure this is set in your environment variables
-});
+const pool = createPool();
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
@@ -15,25 +14,32 @@ export default defineEventHandler(async (event) => {
 
   try {
     // Fetch the current location
-    const currentQuery = `
-      SELECT name FROM locations WHERE h3index = $1
+    const currentResult = await sql`
+      SELECT name FROM locations WHERE h3index = ${h3index}
     `;
-    const currentResult = await pool.query(currentQuery, [h3index]);
 
-    if (currentResult.rowCount === 0) {
+    if (currentResult.rows.length === 0) {
       return { error: 'Location not found' };
     }
 
     const currentLocation = currentResult.rows[0].name;
 
-    // Fetch the next nearest city
-    const cityQuery = `
-      SELECT name FROM locations WHERE city = true 
-      ORDER BY h3index <-> $1 LIMIT 1
+    // Fetch all city locations
+    const cityResults = await sql`
+      SELECT h3index, name FROM locations WHERE city = true
     `;
-    const cityResult = await pool.query(cityQuery, [h3index]);
 
-    const nextCity = cityResult.rowCount > 0 ? cityResult.rows[0].name : null;
+    // Find the nearest city using H3 distance
+    let nextCity = null;
+    let minDistance = Infinity;
+
+    for (const city of cityResults.rows) {
+      const distance = h3.gridDistance(h3index, city.h3index);
+      if (distance !== null && distance < minDistance) {
+        minDistance = distance;
+        nextCity = city.name;
+      }
+    }
 
     return {
       currentLocation,
