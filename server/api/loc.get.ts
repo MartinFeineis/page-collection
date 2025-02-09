@@ -1,5 +1,5 @@
 import { sql } from '@vercel/postgres'
-//import h3 from 'h3-js';
+import h3 from 'h3-js';
 
 const ringSize = 3
 
