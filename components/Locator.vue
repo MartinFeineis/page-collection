@@ -6,6 +6,7 @@
       <p>Latitude: {{ location.latitude }}</p>
       <p>Longitude: {{ location.longitude }}</p>
       <p>H3 Index: {{ h3index }}</p>
+      <p>Neighbors: {{ response }}</p>
     </div>
     <button @click="fetchLocation">Get Location</button>
   </div>
@@ -14,6 +15,7 @@
 <script>
 import { ref } from "vue";
 import { latLngToCell } from "h3-js";
+const API_URL = '/api/loc';
 
 export default {
   name: "DisplayLocation",
@@ -42,12 +44,38 @@ export default {
         }
       );
     };
+  const fetchCities = async () => {
+  if (!currentH3.value) {
+    console.error("No H3 index available.");
+    return;
+  }
+
+  // Get neighboring H3 indexes (ring size = 2)
+  const ringSize = 2;
+  const h3Indexes = h3.gridDisk(h3index.value, ringSize);
+
+  console.log("Sending H3 indexes to API:", h3Indexes);
+
+  try {
+    // Call the API
+    const response = await fetch(`${API_URL}?h3indexes=${h3Indexes.join(',')}`);
+    const data = await response.json();
+
+    // Filter results to include only cities
+    cities.value = data.locations.filter(loc => loc.city);
+
+    console.log("Cities received:", cities.value);
+  } catch (error) {
+    console.error("Error fetching city data:", error);
+  }
+};
 
     return {
       location,
       error,
       fetchLocation,
       h3index,
+      response,
     };
   },
 };
