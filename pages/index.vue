@@ -18,6 +18,6 @@
   </ul>
   <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
   </div>
-      <p>Last Commit: readded gridDiskDistance</p>
+      <p>Last Commit: returned to manual import</p>
 </template>
 
