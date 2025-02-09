@@ -18,6 +18,6 @@
   </ul>
   <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
   </div>
-      <p>Last Commit: readded h3-js in loc</p>
+      <p>Last Commit: readded gridDiskDistance</p>
 </template>
 
