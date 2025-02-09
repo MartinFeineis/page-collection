@@ -29,12 +29,20 @@ export default defineEventHandler(async (event) => {
       SELECT h3index, name FROM locations WHERE city = true
     `;
 
-    // Find the nearest city using H3 distance
+    if (cityResults.rows.length === 0) {
+      return {
+        currentLocation,
+        nextCity: "No city found",
+      };
+    }
+
+    // Find the nearest city using H3 grid distance
     let nextCity = null;
     let minDistance = Infinity;
 
     for (const city of cityResults.rows) {
       const distance = h3.gridDistance(h3index, city.h3index);
+
       if (distance !== null && distance < minDistance) {
         minDistance = distance;
         nextCity = city.name;
