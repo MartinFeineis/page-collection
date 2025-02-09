@@ -2,6 +2,7 @@
 H3 Indiexes near Northampton 
 [h3 index](https://h3geo.org/#hex=882a1224b7fffff%2C+882a1224b3fffff%2C+882a1224b1fffff%2C+882a1224b5fffff%2C+882a135a49fffff%2C+882a135a4bfffff%2C+882a135a41fffff%2C+882a135a43fffff%2C+882a135a5dfffff%2C+882a135a59fffff%2C+882a135165fffff%2C+882a13516dfffff%2C+882a1224bbfffff%2C+882a1224bdfffff%2C+882a135a51fffff%2C+882a135a5bfffff%2C+882a135167fffff%2C+882a135a55fffff)
 compatibilityDate: '2025-01-31 in nuxt.config
+[loc api](https://pages.rjo.me/api/loc?h3index=882a1224b7fffff)
 
 [plugin:vite-plugin-vue-inspector] Attribute name cannot contain U+0022 ("), U+0027 ('), and U+003C (<).
 <p>https://media.404founders.com/martinfeineis/profile.json</p>
