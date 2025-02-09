@@ -18,6 +18,6 @@
   </ul>
   <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
   </div>
-      <p>Last Commit: added City Finder</p>
+      <p>Last Commit: fixed url</p>
 </template>
 

@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 import h3 from 'h3-js';
 
 // API endpoint (adjust if needed)
-const API_URL = '/api/locations';
+const API_URL = '/api/loc';
 
 // State variables
 const currentH3 = ref(null); // The current H3 index
