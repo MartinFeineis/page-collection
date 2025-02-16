@@ -15,9 +15,10 @@
     <li><NuxtLink to="/searcher">Search Files and Directories</NuxtLink></li>
     <li><NuxtLink to="/profiles/martinfeineis" >Resume</NuxtLink></li>
     <li><NuxtLink to="/guser/testuser">Test user</NuxtLink></li>
+    <li><NuxtLink to="/phaser">Game</NuxtLink></li>
   </ul>
   <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
   </div>
-      <p>Last Commit: updates for Db structure</p>
+      <p>Last Commit: started on phaser</p>
 </template>
 
