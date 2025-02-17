@@ -1,4 +1,5 @@
 <script>
+import Phaser from "phaser";
     class Example extends Phaser.Scene
     {
         preload ()
