@@ -1,0 +1,32 @@
+#!/bin/bash
+# Function to add commit message to index.vue
+add_commit_message_to_index() {
+  local INDEX_FILE="./pages/index.vue"
+  local COMMIT_MESSAGE="$1"
+
+  # Check if the index.vue file exists
+  if [[ ! -f "$INDEX_FILE" ]]; then
+    echo "Error: $INDEX_FILE does not exist."
+    exit 1
+  fi
+
+  # Insert the commit message into the <template> section
+  awk -v msg="$COMMIT_MESSAGE" '
+    /<p>Last Commit:/ {
+      sub(/<p>Last Commit:.*<\/p>/, "<p>Last Commit: " msg "</p>")
+    }
+    { print }
+  ' "$INDEX_FILE" > "./temp_index.vue" && mv "./temp_index.vue" "$INDEX_FILE"
+
+  echo "Commit message added to $INDEX_FILE."
+}
+
+# Ensure a commit message is provided
+if [[ -z "$1" ]]; then
+  echo "Error: Commit message is required."
+  exit 1
+fi
+# Add commit message to index.vue and commit/push changes
+add_commit_message_to_index "$1"
+git commit -am "$1" || exit 1
+git push || exit 1
