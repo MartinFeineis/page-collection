@@ -16,9 +16,10 @@
     <li><NuxtLink to="/profiles/martinfeineis" >Resume</NuxtLink></li>
     <li><NuxtLink to="/guser/testuser">Test user</NuxtLink></li>
     <li><NuxtLink to="/phaser">Game</NuxtLink></li>
+    <li><NuxtLink to="/slides">Slides</NuxtLink></li>
   </ul>
-  <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div>
+  <!-- <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div> -->
   </div>
-      <p>Last Commit: testing gpp file</p>
+      <p>Last Commit: adding links</p>
 </template>
 
