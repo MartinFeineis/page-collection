@@ -20,6 +20,6 @@
   </ul>
   <!-- <div><h4>Attributions <a href="https://simplemaps.com/data/us-cities">simplemaps</a></h4></div> -->
   </div>
-      <p>Last Commit: removed reduant code</p>
+      <p>Last Commit: fix with ChatGPT</p>
 </template>
 
