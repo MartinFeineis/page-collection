@@ -6,7 +6,6 @@ let deck = new Reveal({
   plugins: [Markdown],
 });
 deck.initialize();
-Reveal.initialize();
 </script>
 <style></style>
 <template>
