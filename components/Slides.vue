@@ -6,6 +6,7 @@ let deck = new Reveal({
   plugins: [Markdown],
 });
 deck.initialize();
+Reveal.initialize();
 </script>
 <style></style>
 <template>
@@ -15,8 +16,6 @@ deck.initialize();
 		<meta charset="utf-8">
 		<title>reveal.js - Barebones</title>
 	</head>
-	<body>
-
 		<div class="reveal">
 			<div class="slides">
 
@@ -32,12 +31,4 @@ deck.initialize();
 
 			</div>
 		</div>
-
-		<script src="../dist/reveal.js"></script>
-		<script>
-			Reveal.initialize();
-		</script>
-
-	</body>
-</html>
 </template>
