@@ -1,14 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   vite: {
     server: {
       allowedHosts: ['optiplex'],
     }
   },
+
   experimental: {
     componentIslands: true,
   },
+
   // routeRules: {
   //   '/swcomics': { ssr: true },
   // },
@@ -16,11 +19,13 @@ export default defineNuxtConfig({
   modules: [
     //   '@nuxthub/core',
     '@nuxtjs/supabase', '@pinia/nuxt'],
+
   supabase: {
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_KEY,
     redirect: false,
   },
+
   app: {
     head: {
       link: [
@@ -34,5 +39,7 @@ export default defineNuxtConfig({
         // { src: 'https://apis.google.com/js/platform.js', async: true, defer: true }
       ]
     }
-  }
+  },
+
+  compatibilityDate: '2025-03-28'
 })
